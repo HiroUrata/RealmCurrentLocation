@@ -15,6 +15,10 @@
 		543BE54E26D8B1D30028AD50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 543BE54C26D8B1D30028AD50 /* LaunchScreen.storyboard */; };
 		543BE55A26D8C4A20028AD50 /* LayerFuncGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BE55926D8C4A20028AD50 /* LayerFuncGroup.swift */; };
 		543BE55C26D912160028AD50 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BE55B26D912160028AD50 /* TabBarViewController.swift */; };
+		543BE55E26DB57EB0028AD50 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BE55D26DB57EB0028AD50 /* SearchViewController.swift */; };
+		543BE56A26DBB7E70028AD50 /* GetCurrentLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BE56926DBB7E70028AD50 /* GetCurrentLocationView.swift */; };
+		543BE56C26DBB7F00028AD50 /* GetCurrentLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 543BE56B26DBB7F00028AD50 /* GetCurrentLocationView.xib */; };
+		543BE56E26DBB7FE0028AD50 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BE56D26DBB7FE0028AD50 /* PresentationModel.swift */; };
 		F211D1966EFD307454821822 /* Pods_RealmCurrentLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65E0E881BC175FB482B8FD4 /* Pods_RealmCurrentLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +34,10 @@
 		543BE54F26D8B1D30028AD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		543BE55926D8C4A20028AD50 /* LayerFuncGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerFuncGroup.swift; sourceTree = "<group>"; };
 		543BE55B26D912160028AD50 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		543BE55D26DB57EB0028AD50 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		543BE56926DBB7E70028AD50 /* GetCurrentLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCurrentLocationView.swift; sourceTree = "<group>"; };
+		543BE56B26DBB7F00028AD50 /* GetCurrentLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetCurrentLocationView.xib; sourceTree = "<group>"; };
+		543BE56D26DBB7FE0028AD50 /* PresentationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		A922E51317C97B31FF0695E1 /* Pods-RealmCurrentLocation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmCurrentLocation.debug.xcconfig"; path = "Target Support Files/Pods-RealmCurrentLocation/Pods-RealmCurrentLocation.debug.xcconfig"; sourceTree = "<group>"; };
 		D65E0E881BC175FB482B8FD4 /* Pods_RealmCurrentLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmCurrentLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -91,6 +99,7 @@
 			children = (
 				543BE55B26D912160028AD50 /* TabBarViewController.swift */,
 				543BE54526D8B1D20028AD50 /* TopViewController.swift */,
+				543BE55D26DB57EB0028AD50 /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -100,6 +109,9 @@
 			children = (
 				543BE54726D8B1D20028AD50 /* Main.storyboard */,
 				543BE54A26D8B1D30028AD50 /* Assets.xcassets */,
+				543BE56B26DBB7F00028AD50 /* GetCurrentLocationView.xib */,
+				543BE56926DBB7E70028AD50 /* GetCurrentLocationView.swift */,
+				543BE56D26DBB7FE0028AD50 /* PresentationModel.swift */,
 				543BE55826D8C4380028AD50 /* Design */,
 			);
 			path = View;
@@ -189,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				543BE54E26D8B1D30028AD50 /* LaunchScreen.storyboard in Resources */,
+				543BE56C26DBB7F00028AD50 /* GetCurrentLocationView.xib in Resources */,
 				543BE54B26D8B1D30028AD50 /* Assets.xcassets in Resources */,
 				543BE54926D8B1D20028AD50 /* Main.storyboard in Resources */,
 			);
@@ -243,10 +256,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				543BE55E26DB57EB0028AD50 /* SearchViewController.swift in Sources */,
 				543BE54626D8B1D20028AD50 /* TopViewController.swift in Sources */,
 				543BE55A26D8C4A20028AD50 /* LayerFuncGroup.swift in Sources */,
+				543BE56E26DBB7FE0028AD50 /* PresentationModel.swift in Sources */,
 				543BE54226D8B1D20028AD50 /* AppDelegate.swift in Sources */,
 				543BE55C26D912160028AD50 /* TabBarViewController.swift in Sources */,
+				543BE56A26DBB7E70028AD50 /* GetCurrentLocationView.swift in Sources */,
 				543BE54426D8B1D20028AD50 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

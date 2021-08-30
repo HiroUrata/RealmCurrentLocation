@@ -26,7 +26,26 @@ class TopViewController: UIViewController {
         
     }
 
+    @IBAction func showGetCurrentDatasView(_ sender: UIButton) {
+        
+        let gCLView = GetCurrentLocationView()
+        gCLView.modalPresentationStyle = .custom
+        gCLView.transitioningDelegate = self
+        self.present(gCLView, animated: true, completion: nil)
+        
+        
+    }
     
 
+}
+
+
+extension TopViewController: UIViewControllerTransitioningDelegate {
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        
+        PresentationController(presentedViewController: presented, presenting: presenting)
+        
+    }
 }
 

@@ -30,3 +30,24 @@ extension LayerFuncGroup{
         targetButton.layer.shadowRadius = 5
     }
 }
+
+
+extension LayerFuncGroup{
+    
+    static func searchViewDesign(targetView:UIView,targetButton:UIButton,targetTableView:UITableView){
+        
+        targetView.layer.cornerRadius = 20.0
+        targetView.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+        targetView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        targetView.layer.shadowOpacity = 0.7
+        targetView.layer.shadowRadius = 5
+        
+        targetButton.layer.cornerRadius = 20.0
+        
+        targetTableView.layer.cornerRadius = 20.0
+        targetTableView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+        
+        
+    }
+    
+}

@@ -22,7 +22,8 @@ class GetCurrentLocationView:UIViewController{
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
     
-  
+    let clLocationManager = CLLocationManager()
+    let mkPointAnnotation = MKPointAnnotation()
        
     override func viewDidLoad() {
            super.viewDidLoad()
@@ -41,16 +42,13 @@ class GetCurrentLocationView:UIViewController{
         getCurrentDatasButton.layer.shadowColor = UIColor.black.cgColor
         getCurrentDatasButton.layer.shadowOpacity = 0.7
         getCurrentDatasButton.layer.shadowRadius = 8
-     
+        
        }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
-        
-        
-        
+       
         
     }
        
@@ -114,15 +112,29 @@ class GetCurrentLocationView:UIViewController{
                     
                 }
                 
-                
-                
             }
             
         }
         
-        
-        
-        
+    }
+    
+    
+}
+
+
+//位置情報関連
+extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UIGestureRecognizerDelegate{
+    
+    //位置情報の取得を許可するかのを表示
+    func startUpdatingLocation(){
+
+        clLocationManager.requestAlwaysAuthorization()
+
+        if CLAccuracyAuthorization.fullAccuracy == .fullAccuracy{
+
+            self.clLocationManager.startUpdatingLocation() //現在地の取得を開始
+
+        }
     }
     
 }

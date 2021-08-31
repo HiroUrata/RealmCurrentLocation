@@ -87,6 +87,11 @@ class GetCurrentLocationView:UIViewController{
            }
        }
     
+    @IBAction func getCurrentDatas(_ sender: UIButton) {
+        
+
     
    
+    }
+
 }

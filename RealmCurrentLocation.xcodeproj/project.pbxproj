@@ -19,6 +19,7 @@
 		543BE56A26DBB7E70028AD50 /* GetCurrentLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BE56926DBB7E70028AD50 /* GetCurrentLocationView.swift */; };
 		543BE56C26DBB7F00028AD50 /* GetCurrentLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 543BE56B26DBB7F00028AD50 /* GetCurrentLocationView.xib */; };
 		543BE56E26DBB7FE0028AD50 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543BE56D26DBB7FE0028AD50 /* PresentationModel.swift */; };
+		54D873D626DE561100C5B334 /* RealmCurrentDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D873D526DE561100C5B334 /* RealmCurrentDatas.swift */; };
 		F211D1966EFD307454821822 /* Pods_RealmCurrentLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65E0E881BC175FB482B8FD4 /* Pods_RealmCurrentLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		543BE56926DBB7E70028AD50 /* GetCurrentLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCurrentLocationView.swift; sourceTree = "<group>"; };
 		543BE56B26DBB7F00028AD50 /* GetCurrentLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetCurrentLocationView.xib; sourceTree = "<group>"; };
 		543BE56D26DBB7FE0028AD50 /* PresentationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
+		54D873D526DE561100C5B334 /* RealmCurrentDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCurrentDatas.swift; sourceTree = "<group>"; };
 		A922E51317C97B31FF0695E1 /* Pods-RealmCurrentLocation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmCurrentLocation.debug.xcconfig"; path = "Target Support Files/Pods-RealmCurrentLocation/Pods-RealmCurrentLocation.debug.xcconfig"; sourceTree = "<group>"; };
 		D65E0E881BC175FB482B8FD4 /* Pods_RealmCurrentLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmCurrentLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 		543BE55726D8B6CD0028AD50 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54D873D526DE561100C5B334 /* RealmCurrentDatas.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54D873D626DE561100C5B334 /* RealmCurrentDatas.swift in Sources */,
 				543BE55E26DB57EB0028AD50 /* SearchViewController.swift in Sources */,
 				543BE54626D8B1D20028AD50 /* TopViewController.swift in Sources */,
 				543BE55A26D8C4A20028AD50 /* LayerFuncGroup.swift in Sources */,

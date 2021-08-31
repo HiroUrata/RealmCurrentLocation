@@ -50,6 +50,9 @@
                     <state key="normal" title="位置情報を取得">
                         <color key="titleColor" systemColor="systemIndigoColor"/>
                     </state>
+                    <connections>
+                        <action selector="getCurrentDatas:" destination="-1" eventType="touchUpInside" id="wvg-xg-IPq"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CurrentDate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFD-cH-V19">
                     <rect key="frame" x="70" y="313" width="273" height="44"/>

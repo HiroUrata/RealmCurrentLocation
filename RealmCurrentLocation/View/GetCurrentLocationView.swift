@@ -11,24 +11,22 @@ import MapKit
 import LocalAuthentication
 
 class GetCurrentLocationView:UIViewController{
-    
-    
+        
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var currentLocationLabel: UILabel!
     @IBOutlet weak var getCurrentDatasButton: UIButton!
  
-    
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
     
     let clLocationManager = CLLocationManager()
     let mkPointAnnotation = MKPointAnnotation()
        
+    
     override func viewDidLoad() {
            super.viewDidLoad()
-        
-        
+                
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         view.addGestureRecognizer(panGesture)
      
@@ -111,11 +109,8 @@ class GetCurrentLocationView:UIViewController{
                     print("成功")
                     
                 }
-                
             }
-            
         }
-        
     }
     
     
@@ -125,16 +120,30 @@ class GetCurrentLocationView:UIViewController{
 //位置情報関連
 extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UIGestureRecognizerDelegate{
     
-    //位置情報の取得を許可するかのを表示
-    func startUpdatingLocation(){
+    func setUpLocationManager(){
 
         clLocationManager.requestAlwaysAuthorization()
 
         if CLAccuracyAuthorization.fullAccuracy == .fullAccuracy{
 
             self.clLocationManager.startUpdatingLocation() //現在地の取得を開始
-
         }
+        
     }
     
+    //位置情報の取得を許可するか表示
+    func showPermission(){ //viewが表示された時に使用
+
+        clLocationManager.delegate = self
+        mapView.delegate = self
+        
+        clLocationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        clLocationManager.requestWhenInUseAuthorization()
+        clLocationManager.startUpdatingLocation() //位置情報を取得を許可するか表示
+        mapView.mapType = .standard //標準の地図を表示
+        mapView.userTrackingMode = .none
+    }
+
 }
+
+

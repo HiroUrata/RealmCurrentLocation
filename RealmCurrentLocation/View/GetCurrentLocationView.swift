@@ -41,6 +41,8 @@ class GetCurrentLocationView:UIViewController{
         getCurrentDatasButton.layer.shadowOpacity = 0.7
         getCurrentDatasButton.layer.shadowRadius = 8
         
+        showPermission()
+        setUpLocationManager()
        }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,49 +89,40 @@ class GetCurrentLocationView:UIViewController{
     @IBAction func getCurrentDatas(_ sender: UIButton) {
         
         //FaceID
-        let context = LAContext()
-        var error: NSError? = nil
-        
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error){
-            
-            let reason = "TouchID "
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success,error in
-                
-                DispatchQueue.main.async {
-                    
-                    guard success, error == nil else{
-                        //認証失敗
-                        
-                        print("失敗")
-                        
-                        return
-                    }
-                    
-                    //認証成功時
-                    print("成功")
-                    
-                }
-            }
-        }
+//        let context = LAContext()
+//        var error: NSError? = nil
+//
+//        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error){
+//
+//            let reason = "TouchID "
+//            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success,error in
+//
+//                DispatchQueue.main.async {
+//
+//                    guard success, error == nil else{
+//                        //認証失敗
+//
+//                        print("失敗")
+//
+//                        return
+//                    }
+//
+//                    //認証成功時
+//                    print("成功")
+//
+//                }
+//            }
+//        }
+//    }
+//
+
     }
-    
     
 }
 
 
 //位置情報関連
 extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UIGestureRecognizerDelegate{
-    
-    func setUpLocationManager(){
-
-        clLocationManager.requestAlwaysAuthorization()
-
-        if CLAccuracyAuthorization.fullAccuracy == .fullAccuracy{
-
-            self.clLocationManager.startUpdatingLocation() //現在地の取得を開始
-        }
-        
-    }
     
     //位置情報の取得を許可するか表示
     func showPermission(){ //viewが表示された時に使用
@@ -143,7 +136,40 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
         mapView.mapType = .standard //標準の地図を表示
         mapView.userTrackingMode = .none
     }
+    
+    func setUpLocationManager(){
 
+        clLocationManager.requestAlwaysAuthorization()
+
+        if CLAccuracyAuthorization.fullAccuracy == .fullAccuracy{
+
+            self.clLocationManager.startUpdatingLocation() //現在地の取得を開始
+        }
+        
+    }
+
+    //使用者の現在地の緯度と経度を取得して、住所か建物の名前などに変換
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(CLLocation(latitude: (locations.first?.coordinate.latitude)!, longitude: (locations.first?.coordinate.longitude)!)) { placeMark, error in
+            
+            if let resultPlaceMark = placeMark?.first{
+                
+                if resultPlaceMark.administrativeArea != nil || resultPlaceMark.locality != nil{
+                    
+                    self.currentLocationLabel.text = resultPlaceMark.name! + resultPlaceMark.administrativeArea! + resultPlaceMark.locality!
+                    
+                }else{
+                    
+                    self.currentLocationLabel.text = resultPlaceMark.name!
+                }
+            }
+        }
+    }
+    
+    
 }
+
 
 

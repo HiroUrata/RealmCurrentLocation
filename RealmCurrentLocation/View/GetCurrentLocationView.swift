@@ -151,27 +151,18 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
     //使用者の現在地の緯度と経度を取得して、住所か建物の名前などに変換
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(CLLocation(latitude: (locations.first?.coordinate.latitude)!, longitude: (locations.first?.coordinate.longitude)!)) { placeMark, error in
+        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: (locations.first?.coordinate.latitude)!, longitude: (locations.first?.coordinate.longitude)!)) { placeMark, error in
+            
+            if error != nil{
+                
+                return
+            }
             
             if let resultPlaceMark = placeMark?.first{
                 
                 if resultPlaceMark.administrativeArea != nil || resultPlaceMark.locality != nil{
                     
-                    self.currentLocationLabel.text = resultPlaceMark.name!
-                    print(resultPlaceMark.name!)
-                    print(resultPlaceMark.thoroughfare as Any)
-                    print(resultPlaceMark.subThoroughfare as Any)
-                    print(resultPlaceMark.locality as Any)
-                    print(resultPlaceMark.subLocality as Any)
-                    print(resultPlaceMark.administrativeArea as Any)
-                    print(resultPlaceMark.subAdministrativeArea as Any)
-                    print(resultPlaceMark.postalCode as Any)
-                    print(resultPlaceMark.isoCountryCode as Any)
-                    print(resultPlaceMark.country as Any)
-                    print(resultPlaceMark.inlandWater as Any)
-                    print(resultPlaceMark.ocean as Any)
-                    print(resultPlaceMark.areasOfInterest as Any)
+                    self.currentLocationLabel.text = resultPlaceMark.name! + resultPlaceMark.administrativeArea! + resultPlaceMark.locality!
                     
                 }else{
                     

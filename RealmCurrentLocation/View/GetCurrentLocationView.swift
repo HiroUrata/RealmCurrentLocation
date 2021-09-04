@@ -134,7 +134,7 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
         clLocationManager.requestWhenInUseAuthorization()
         clLocationManager.startUpdatingLocation() //位置情報を取得を許可するか表示
         mapView.mapType = .standard //標準の地図を表示
-        mapView.userTrackingMode = .none
+        mapView.userTrackingMode = .follow
     }
     
     func setUpLocationManager(){
@@ -158,7 +158,20 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
                 
                 if resultPlaceMark.administrativeArea != nil || resultPlaceMark.locality != nil{
                     
-                    self.currentLocationLabel.text = resultPlaceMark.name! + resultPlaceMark.administrativeArea! + resultPlaceMark.locality!
+                    self.currentLocationLabel.text = resultPlaceMark.name!
+                    print(resultPlaceMark.name!)
+                    print(resultPlaceMark.thoroughfare as Any)
+                    print(resultPlaceMark.subThoroughfare as Any)
+                    print(resultPlaceMark.locality as Any)
+                    print(resultPlaceMark.subLocality as Any)
+                    print(resultPlaceMark.administrativeArea as Any)
+                    print(resultPlaceMark.subAdministrativeArea as Any)
+                    print(resultPlaceMark.postalCode as Any)
+                    print(resultPlaceMark.isoCountryCode as Any)
+                    print(resultPlaceMark.country as Any)
+                    print(resultPlaceMark.inlandWater as Any)
+                    print(resultPlaceMark.ocean as Any)
+                    print(resultPlaceMark.areasOfInterest as Any)
                     
                 }else{
                     

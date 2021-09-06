@@ -47,7 +47,7 @@
                         <constraint firstAttribute="width" constant="237" id="saK-wL-6cy"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                    <state key="normal" title="位置情報を取得">
+                    <state key="normal" title="位置情報を保存">
                         <color key="titleColor" systemColor="systemIndigoColor"/>
                     </state>
                     <connections>

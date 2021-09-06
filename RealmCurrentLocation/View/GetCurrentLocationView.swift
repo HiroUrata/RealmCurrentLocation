@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import LocalAuthentication
 
 class GetCurrentLocationView:UIViewController{
         
@@ -88,34 +87,8 @@ class GetCurrentLocationView:UIViewController{
     
     @IBAction func getCurrentDatas(_ sender: UIButton) {
         
-        //FaceID
-//        let context = LAContext()
-//        var error: NSError? = nil
-//
-//        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error){
-//
-//            let reason = "TouchID "
-//            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success,error in
-//
-//                DispatchQueue.main.async {
-//
-//                    guard success, error == nil else{
-//                        //認証失敗
-//
-//                        print("失敗")
-//
-//                        return
-//                    }
-//
-//                    //認証成功時
-//                    print("成功")
-//
-//                }
-//            }
-//        }
-//    }
-//
 
+    
     }
     
 }

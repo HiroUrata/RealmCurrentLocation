@@ -162,7 +162,7 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
                 
                 if resultPlaceMark.administrativeArea != nil || resultPlaceMark.locality != nil{
                     
-                    self.currentLocationLabel.text = resultPlaceMark.name! + resultPlaceMark.administrativeArea! + resultPlaceMark.locality!
+                    self.currentLocationLabel.text = "緯度[\((locations.first?.coordinate.latitude)!)] 経度[\((locations.first?.coordinate.longitude)!)] 場所[\(resultPlaceMark.name! + resultPlaceMark.administrativeArea! + resultPlaceMark.locality!)]"
                     
                 }else{
                     

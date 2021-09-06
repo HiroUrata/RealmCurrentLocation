@@ -29,13 +29,13 @@
                         <constraint firstAttribute="width" constant="237" id="iV9-ez-B0j"/>
                     </constraints>
                 </mapView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="CurrentLocation" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLc-JB-REC">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="CurrentLocation" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLc-JB-REC">
                     <rect key="frame" x="71" y="375" width="273" height="96"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="96" id="SQ2-q4-BsX"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>

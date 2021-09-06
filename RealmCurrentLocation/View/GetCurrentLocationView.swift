@@ -40,6 +40,16 @@ class GetCurrentLocationView:UIViewController{
         getCurrentDatasButton.layer.shadowOpacity = 0.7
         getCurrentDatasButton.layer.shadowRadius = 8
         
+        self.currentDateLabel.text = {() -> String in
+            
+            let formatter = DateFormatter()
+            formatter.dateStyle = .full
+            formatter.timeStyle = .medium
+            formatter.locale = Locale(identifier: "ja_JP")
+           // let date = Date()
+            return formatter.string(from:  Date())
+        }()
+        
         showPermission()
         setUpLocationManager()
        }
@@ -87,7 +97,8 @@ class GetCurrentLocationView:UIViewController{
     
     @IBAction func getCurrentDatas(_ sender: UIButton) {
         
-
+        currentDateLabel.text = ""
+        currentLocationLabel.text = ""
     
     }
     
@@ -136,10 +147,11 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
                 if resultPlaceMark.administrativeArea != nil || resultPlaceMark.locality != nil{
                     
                     self.currentLocationLabel.text = "緯度[\((locations.first?.coordinate.latitude)!)] 経度[\((locations.first?.coordinate.longitude)!)] 場所[\(resultPlaceMark.name! + resultPlaceMark.administrativeArea! + resultPlaceMark.locality!)]"
-                    
+                                        
                 }else{
                     
                     self.currentLocationLabel.text = resultPlaceMark.name!
+                    
                 }
             }
         }

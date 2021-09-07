@@ -23,10 +23,8 @@ class TopViewController: UIViewController, UIViewControllerTransitioningDelegate
         
         LayerFuncGroup.topViewDesign(targetLabels: [beforeResultLabel,beforeResultDateLabel,beforeResultLocationLabel], targetView: topSystemIndigoView, targetButton: showSignUpViewButton)
         
-        
-        
     }
-
+    
     @IBAction func showGetCurrentDatasView(_ sender: UIButton) {
         
         //FaceID

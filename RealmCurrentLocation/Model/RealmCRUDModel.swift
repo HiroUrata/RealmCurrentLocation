@@ -11,14 +11,14 @@ import RealmSwift
 
 class RealmCRUDModel{
     
-    
+    var allReadRealmDatasResultArray:[[String:String]] = []
     
 }
 
 
 extension RealmCRUDModel{
     
-    static func createRealmCurrentDatas(createDate:String,createCurrentLocation:String,createLatitude:String,createLongitude:String,targetView:UIViewController){
+    func createRealmCurrentDatas(createDate:String,createCurrentLocation:String,createLatitude:String,createLongitude:String,targetView:UIViewController){
         
         do{
             let realm = try Realm()
@@ -38,6 +38,30 @@ extension RealmCRUDModel{
         }
         
         
+    }
+    
+}
+
+
+extension RealmCRUDModel{
+    
+    func allReadRealmDatas(targetView:UIViewController){
+        
+        do{
+            let realm = try Realm()
+            allReadRealmDatasResultArray = []
+            
+            realm.objects(RealmCurrentDatas.self).forEach { readResultData in
+                
+                self.allReadRealmDatasResultArray.append(["RealmDate":readResultData.currentDate,
+                                                          "RealmLocation":readResultData.currentLocation,
+                                                          "RealmLatitude":readResultData.currentLatitude,
+                                                          "RealmLongitude":readResultData.currentLongitude])
+            }
+        }catch{
+            
+            Alert.showErrorAlert(errorContents: "データの取得", targetView: targetView)
+        }
     }
     
 }

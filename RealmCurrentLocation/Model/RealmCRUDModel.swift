@@ -18,8 +18,23 @@ class RealmCRUDModel{
 
 extension RealmCRUDModel{
     
-    static func createRealmCurrentDatas(createDate:String,createCurrentLocation:String){
+    static func createRealmCurrentDatas(createDate:String,createCurrentLocation:String,createLatitude:String,createLongitude:String){
         
+        do{
+            let realm = try Realm()
+            let realmCurrentDatas = RealmCurrentDatas()
+            realmCurrentDatas.currentDate = createDate
+            realmCurrentDatas.currentLocation = createCurrentLocation
+            realmCurrentDatas.currentLatitude = createLatitude
+            realmCurrentDatas.currentLongitude = createLongitude
+            
+            try realm.write({
+                
+                realm.add(realmCurrentDatas)
+            })
+        }catch{
+            
+        }
         
         
     }

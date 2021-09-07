@@ -148,13 +148,15 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
                     self.currentLocationTextView.text = """
                         緯度
                         [\((locations.first?.coordinate.latitude)!)]
+                        
                         経度
                         [\((locations.first?.coordinate.longitude)!)]
+                        
                         場所
-                        [\(resultPlaceMark.name! + resultPlaceMark.administrativeArea! + resultPlaceMark.locality!)]
-                    """
-                    
-                    
+                        [\(resultPlaceMark.administrativeArea!)]
+                        [\(resultPlaceMark.subLocality!)]
+                        [\(resultPlaceMark.name!)]
+                        """
                     
                 }else{
                     

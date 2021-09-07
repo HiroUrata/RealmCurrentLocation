@@ -18,7 +18,7 @@ class RealmCRUDModel{
 
 extension RealmCRUDModel{
     
-    static func createRealmCurrentDatas(createDate:String,createCurrentLocation:String,createLatitude:String,createLongitude:String){
+    static func createRealmCurrentDatas(createDate:String,createCurrentLocation:String,createLatitude:String,createLongitude:String,targetView:UIViewController){
         
         do{
             let realm = try Realm()
@@ -34,6 +34,7 @@ extension RealmCRUDModel{
             })
         }catch{
             
+            Alert.showErrorAlert(errorContents: "データの保存", targetView: targetView)
         }
         
         

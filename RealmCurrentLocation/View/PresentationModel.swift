@@ -34,8 +34,8 @@ class PresentationController: UIPresentationController {
     
   override var frameOfPresentedViewInContainerView: CGRect {  //数字の変更で持ち上げる高さを変えられる
     
-    CGRect(origin: CGPoint(x: 0, y: self.containerView!.frame.height * 0.3),
-           size: CGSize(width: self.containerView!.frame.width, height: self.containerView!.frame.height * 0.7))
+    CGRect(origin: CGPoint(x: 0, y: self.containerView!.frame.height * 0.25),
+           size: CGSize(width: self.containerView!.frame.width, height: self.containerView!.frame.height * 0.75))
     
     
     
@@ -77,7 +77,7 @@ class PresentationController: UIPresentationController {
       super.containerViewWillLayoutSubviews()
     
     presentedView!.roundCorners([.topLeft, .topRight], radius: 22)
-    presentedView?.roundCorners([.bottomLeft, .bottomRight], radius: 22)
+    //presentedView?.roundCorners([.bottomLeft, .bottomRight], radius: 22)
     
   }
 

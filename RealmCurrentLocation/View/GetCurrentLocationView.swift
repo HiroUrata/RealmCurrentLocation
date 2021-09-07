@@ -13,7 +13,7 @@ class GetCurrentLocationView:UIViewController{
         
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentDateLabel: UILabel!
-    @IBOutlet weak var currentLocationLabel: UILabel!
+    @IBOutlet weak var currentLocationTextView: UITextView!
     @IBOutlet weak var getCurrentDatasButton: UIButton!
  
     var hasSetPointOrigin = false
@@ -31,8 +31,8 @@ class GetCurrentLocationView:UIViewController{
      
         currentDateLabel.layer.cornerRadius = 13.0
         currentDateLabel.layer.masksToBounds = true
-        currentLocationLabel.layer.cornerRadius = 13.0
-        currentLocationLabel.layer.masksToBounds = true
+        currentLocationTextView.layer.cornerRadius = 13.0
+        currentLocationTextView.layer.masksToBounds = true
         
         getCurrentDatasButton.layer.cornerRadius = 20.0
         getCurrentDatasButton.layer.shadowOffset = CGSize(width: 4, height: 4)
@@ -97,8 +97,7 @@ class GetCurrentLocationView:UIViewController{
     
     @IBAction func getCurrentDatas(_ sender: UIButton) {
         
-        currentDateLabel.text = ""
-        currentLocationLabel.text = ""
+       
     
     }
     
@@ -146,13 +145,20 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
                 
                 if resultPlaceMark.administrativeArea != nil || resultPlaceMark.locality != nil{
                     
-                    self.currentLocationLabel.text = "緯度[\((locations.first?.coordinate.latitude)!)] 経度[\((locations.first?.coordinate.longitude)!)] 場所[\(resultPlaceMark.name! + resultPlaceMark.administrativeArea! + resultPlaceMark.locality!)]"
+                    self.currentLocationTextView.text = """
+                        緯度
+                        [\((locations.first?.coordinate.latitude)!)]
+                        経度
+                        [\((locations.first?.coordinate.longitude)!)]
+                        場所
+                        [\(resultPlaceMark.name! + resultPlaceMark.administrativeArea! + resultPlaceMark.locality!)]
+                    """
                     
                     
-                                        
+                    
                 }else{
                     
-                    self.currentLocationLabel.text = resultPlaceMark.name!
+                    self.currentLocationTextView.text = resultPlaceMark.name!
                     
                 }
             }

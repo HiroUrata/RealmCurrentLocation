@@ -97,9 +97,12 @@ class GetCurrentLocationView:UIViewController{
     
     @IBAction func getCurrentDatas(_ sender: UIButton) {
         
+        
        
     
     }
+    
+
     
 }
 
@@ -117,7 +120,9 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
         clLocationManager.requestWhenInUseAuthorization()
         clLocationManager.startUpdatingLocation() //位置情報を取得を許可するか表示
         mapView.mapType = .standard //標準の地図を表示
-        mapView.userTrackingMode = .follow
+        mapView.showsCompass = true
+        mapView.setUserTrackingMode(.followWithHeading, animated: true)
+        //mapView.isRotateEnabled = false
     }
     
     func setUpLocationManager(){
@@ -133,6 +138,8 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
 
     //使用者の現在地の緯度と経度を取得して、住所か建物の名前などに変換
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        mapView.userTrackingMode = .followWithHeading
         
         CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: (locations.first?.coordinate.latitude)!, longitude: (locations.first?.coordinate.longitude)!)) { placeMark, error in
             
@@ -168,6 +175,7 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
     }
     
     
+
 }
 
 

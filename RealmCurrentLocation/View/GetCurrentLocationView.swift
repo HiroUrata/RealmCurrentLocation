@@ -122,7 +122,7 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
         mapView.mapType = .standard //標準の地図を表示
         mapView.showsCompass = true
         mapView.setUserTrackingMode(.followWithHeading, animated: true)
-        //mapView.isRotateEnabled = false
+        mapView.isRotateEnabled = false
     }
     
     func setUpLocationManager(){

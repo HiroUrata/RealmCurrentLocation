@@ -66,6 +66,7 @@ extension RealmCRUDModel{
     
 }
 
+
 extension RealmCRUDModel{
     
     func realmDataAllDelete(targetView:UIViewController){
@@ -77,11 +78,33 @@ extension RealmCRUDModel{
             try realm.write({
                 
                 realm.delete(realm.objects(RealmCurrentDatas.self))
+                
             })
             
         }catch{
             
             Alert.showErrorAlert(errorContents: "データの削除", targetView: targetView)
+        }
+    }
+}
+
+
+extension RealmCRUDModel{
+    
+    func selectRealmDataDelete(selectContensNumber:Int,targetView:UIViewController){
+        
+        do{
+            
+            let realm = try Realm()
+            
+            try realm.write({
+                
+                realm.delete(realm.objects(RealmCurrentDatas.self)[selectContensNumber])
+            })
+        }catch{
+            
+            Alert.showErrorAlert(errorContents: "データの削除", targetView: targetView)
+
         }
     }
 }

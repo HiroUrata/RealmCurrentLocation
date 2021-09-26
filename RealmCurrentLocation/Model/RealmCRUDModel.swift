@@ -65,3 +65,23 @@ extension RealmCRUDModel{
     }
     
 }
+
+extension RealmCRUDModel{
+    
+    func realmDataAllDelete(){
+        
+        do {
+            
+            let realm = try Realm()
+            
+            try realm.write({
+                
+                realm.delete(realm.objects(RealmCurrentDatas.self))
+            })
+            
+        }catch{
+            
+            
+        }
+    }
+}

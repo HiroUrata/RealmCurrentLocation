@@ -68,7 +68,7 @@ extension RealmCRUDModel{
 
 extension RealmCRUDModel{
     
-    func realmDataAllDelete(){
+    func realmDataAllDelete(targetView:UIViewController){
         
         do {
             
@@ -81,7 +81,7 @@ extension RealmCRUDModel{
             
         }catch{
             
-            
+            Alert.showErrorAlert(errorContents: "データの削除", targetView: targetView)
         }
     }
 }

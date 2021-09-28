@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--SignUp-->
+        <!--Register-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TopViewController" customModule="RealmCurrentLocation" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,7 +99,7 @@
                             <constraint firstItem="2qL-8X-aum" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wiZ-j7-Okm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="SignUp" image="location.fill" catalog="system" id="ymH-Ye-gfq"/>
+                    <tabBarItem key="tabBarItem" title="Register" image="location.fill" catalog="system" id="ymH-Ye-gfq"/>
                     <navigationItem key="navigationItem" id="xr1-Pw-iGH"/>
                     <connections>
                         <outlet property="beforeResultDateLabel" destination="JIQ-xc-DEb" id="eJ9-Wk-1VU"/>
@@ -111,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921.7391304347827" y="-577.23214285714278"/>
+            <point key="canvasLocation" x="1922" y="-196"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="Iec-zF-1xn">
@@ -240,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNb-JZ-D3n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921.7391304347827" y="105.80357142857143"/>
+            <point key="canvasLocation" x="1922" y="443"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pT8-Ga-JPx">

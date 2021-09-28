@@ -14,11 +14,18 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    let realmCRUDModel = RealmCRUDModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         LayerFuncGroup.searchViewDesign(targetView: searchItemView, targetButton: searchButton, targetTableView: tableView)
       
+        realmCRUDModel.allReadRealmDatas(targetView: self)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+
     }
     
     @IBAction func search(_ sender: UIButton) {
@@ -27,4 +34,24 @@ class SearchViewController: UIViewController {
     }
     
   
+}
+
+extension SearchViewController:UITableViewDelegate{
+    
+    
+}
+
+extension SearchViewController:UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
+    
 }

@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,7 +11,6 @@
             <connections>
                 <outlet property="currentDateLabel" destination="DFD-cH-V19" id="hgd-bd-ReA"/>
                 <outlet property="currentLocationTextView" destination="gg7-Iy-nIc" id="VTp-Yf-I2d"/>
-                <outlet property="getCurrentDatasButton" destination="O8U-vp-mmg" id="TMK-1G-D9p"/>
                 <outlet property="mapView" destination="XjU-0B-C0e" id="UP3-75-5zR"/>
                 <outlet property="view" destination="iN0-l3-epB" id="GxK-3h-szN"/>
             </connections>
@@ -29,21 +27,6 @@
                         <constraint firstAttribute="width" constant="237" id="iV9-ez-B0j"/>
                     </constraints>
                 </mapView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8U-vp-mmg">
-                    <rect key="frame" x="89" y="509" width="237" height="45"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="4u0-X3-ww8"/>
-                        <constraint firstAttribute="width" constant="237" id="saK-wL-6cy"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                    <state key="normal" title="位置情報を保存">
-                        <color key="titleColor" systemColor="systemIndigoColor"/>
-                    </state>
-                    <connections>
-                        <action selector="getCurrentDatas:" destination="-1" eventType="touchUpInside" id="wvg-xg-IPq"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CurrentDate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFD-cH-V19">
                     <rect key="frame" x="70" y="313" width="273" height="44"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,11 +38,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gg7-Iy-nIc">
-                    <rect key="frame" x="70" y="365" width="273" height="128"/>
+                    <rect key="frame" x="70" y="365" width="273" height="185"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="273" id="TmD-T1-G2G"/>
-                        <constraint firstAttribute="height" constant="128" id="vuU-mg-7y7"/>
+                        <constraint firstAttribute="height" constant="185" id="vuU-mg-7y7"/>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
@@ -67,32 +50,20 @@
                 </textView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemGreenColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="O8U-vp-mmg" firstAttribute="top" secondItem="gg7-Iy-nIc" secondAttribute="bottom" constant="16" id="0qk-q9-F7L"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="O8U-vp-mmg" secondAttribute="trailing" constant="88" id="3pe-s3-Y2A"/>
                 <constraint firstItem="DFD-cH-V19" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="70" id="9vI-h0-RsB"/>
                 <constraint firstItem="XjU-0B-C0e" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="88" id="EOj-b8-acp"/>
                 <constraint firstItem="gg7-Iy-nIc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="70" id="ITH-c1-Kgm"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gg7-Iy-nIc" secondAttribute="trailing" constant="71" id="Jjz-wZ-hR1"/>
                 <constraint firstItem="gg7-Iy-nIc" firstAttribute="top" secondItem="DFD-cH-V19" secondAttribute="bottom" constant="8" symbolic="YES" id="Oev-Ey-jTY"/>
-                <constraint firstItem="O8U-vp-mmg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="89" id="QQu-XI-3Ac"/>
                 <constraint firstItem="DFD-cH-V19" firstAttribute="top" secondItem="XjU-0B-C0e" secondAttribute="bottom" constant="18" id="Tck-YH-oRE"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XjU-0B-C0e" secondAttribute="trailing" constant="89" id="fHx-IY-u9R"/>
                 <constraint firstItem="XjU-0B-C0e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="gyK-Bu-yUs"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DFD-cH-V19" secondAttribute="trailing" constant="71" id="knI-1M-xJg"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="O8U-vp-mmg" secondAttribute="bottom" constant="56" id="whI-Ql-0dn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-181.15942028985509" y="181.47321428571428"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

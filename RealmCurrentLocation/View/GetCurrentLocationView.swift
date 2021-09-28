@@ -14,14 +14,14 @@ class GetCurrentLocationView:UIViewController{
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var currentLocationTextView: UITextView!
-    @IBOutlet weak var getCurrentDatasButton: UIButton!
- 
+    
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
     
     let clLocationManager = CLLocationManager()
     let mkPointAnnotation = MKPointAnnotation()
-       
+    let realmCRUDModel = RealmCRUDModel()
+    
     
     override func viewDidLoad() {
            super.viewDidLoad()
@@ -33,12 +33,6 @@ class GetCurrentLocationView:UIViewController{
         currentDateLabel.layer.masksToBounds = true
         currentLocationTextView.layer.cornerRadius = 13.0
         currentLocationTextView.layer.masksToBounds = true
-        
-        getCurrentDatasButton.layer.cornerRadius = 20.0
-        getCurrentDatasButton.layer.shadowOffset = CGSize(width: 4, height: 4)
-        getCurrentDatasButton.layer.shadowColor = UIColor.black.cgColor
-        getCurrentDatasButton.layer.shadowOpacity = 0.7
-        getCurrentDatasButton.layer.shadowRadius = 8
         
         currentDateLabel.text = {() -> String in
             
@@ -95,15 +89,6 @@ class GetCurrentLocationView:UIViewController{
            }
        }
     
-    @IBAction func getCurrentDatas(_ sender: UIButton) {
-        
-        
-       
-    
-    }
-    
-
-    
 }
 
 
@@ -143,15 +128,12 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
         
         CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: (locations.first?.coordinate.latitude)!, longitude: (locations.first?.coordinate.longitude)!)) { placeMark, error in
             
-            if error != nil{
-                
-                return
-            }
+            if error != nil{ return }
             
             if let resultPlaceMark = placeMark?.first{
                 
-                if resultPlaceMark.administrativeArea != nil || resultPlaceMark.locality != nil{
-                    
+                    self.realmCRUDModel.createRealmCurrentDatas(createDate: self.currentDateLabel.text!, createCurrentLocation: resultPlaceMark.administrativeArea! + resultPlaceMark.subLocality! + resultPlaceMark.name!, createLatitude: String((locations.first?.coordinate.latitude)!), createLongitude: String((locations.first?.coordinate.longitude)!), targetView: self)
+                   
                     self.currentLocationTextView.text = """
                         緯度
                         [\((locations.first?.coordinate.latitude)!)]
@@ -164,12 +146,7 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
                         [\(resultPlaceMark.subLocality!)]
                         [\(resultPlaceMark.name!)]
                         """
-                    
-                }else{
-                    
-                    self.currentLocationTextView.text = resultPlaceMark.name!
-                    
-                }
+                
             }
         }
     }

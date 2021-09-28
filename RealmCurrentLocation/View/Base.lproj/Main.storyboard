@@ -16,45 +16,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qL-8X-aum">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="529"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qL-8X-aum">
+                                <rect key="frame" x="0.0" y="44" width="414" height="585"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="前回のデータ（住所）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZd-17-OuD">
-                                        <rect key="frame" x="39" y="224" width="336" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前回のデータ（住所）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZd-17-OuD">
+                                        <rect key="frame" x="39" y="184" width="336" height="45"/>
                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="9M9-rc-mqe"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="前回のデータ（Date）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIQ-xc-DEb">
-                                        <rect key="frame" x="39" y="152" width="336" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前回のデータ（Date）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIQ-xc-DEb">
+                                        <rect key="frame" x="39" y="112" width="336" height="45"/>
                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="11H-0B-G6g"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jkZ-49-Z8F">
-                                        <rect key="frame" x="59" y="306" width="296" height="293"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前回のデータ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t6-tl-gSk">
+                                        <rect key="frame" x="118" y="42" width="178" height="45"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="exm-wj-rJE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jkZ-49-Z8F">
+                                        <rect key="frame" x="59" y="266" width="296" height="293"/>
                                     </mapView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="前回のデータ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t6-tl-gSk">
-                                        <rect key="frame" x="118" y="82" width="178" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="jkZ-49-Z8F" firstAttribute="top" secondItem="PZd-17-OuD" secondAttribute="bottom" constant="37" id="3le-4A-6ix"/>
+                                    <constraint firstItem="7t6-tl-gSk" firstAttribute="top" secondItem="2qL-8X-aum" secondAttribute="top" constant="42" id="5DX-9d-OZr"/>
+                                    <constraint firstItem="JIQ-xc-DEb" firstAttribute="centerX" secondItem="2qL-8X-aum" secondAttribute="centerX" id="7zM-kA-V8S"/>
+                                    <constraint firstItem="jkZ-49-Z8F" firstAttribute="centerX" secondItem="2qL-8X-aum" secondAttribute="centerX" id="BPe-qx-w96"/>
+                                    <constraint firstItem="7t6-tl-gSk" firstAttribute="centerX" secondItem="2qL-8X-aum" secondAttribute="centerX" id="DPv-pt-kF7"/>
+                                    <constraint firstItem="jkZ-49-Z8F" firstAttribute="leading" secondItem="2qL-8X-aum" secondAttribute="leading" constant="59" id="NG5-sM-ZqN"/>
+                                    <constraint firstItem="PZd-17-OuD" firstAttribute="top" secondItem="JIQ-xc-DEb" secondAttribute="bottom" constant="27" id="QYD-xH-72U"/>
+                                    <constraint firstAttribute="width" constant="414" id="c5K-VO-Hc9"/>
+                                    <constraint firstItem="7t6-tl-gSk" firstAttribute="leading" secondItem="2qL-8X-aum" secondAttribute="leading" constant="118" id="dIB-Aw-7Au"/>
+                                    <constraint firstItem="PZd-17-OuD" firstAttribute="leading" secondItem="2qL-8X-aum" secondAttribute="leading" constant="39" id="hBv-zm-gv6"/>
+                                    <constraint firstItem="JIQ-xc-DEb" firstAttribute="top" secondItem="7t6-tl-gSk" secondAttribute="bottom" constant="25" id="nZd-kV-hW4"/>
+                                    <constraint firstItem="PZd-17-OuD" firstAttribute="centerX" secondItem="2qL-8X-aum" secondAttribute="centerX" id="qer-G8-aAh"/>
+                                    <constraint firstItem="JIQ-xc-DEb" firstAttribute="leading" secondItem="2qL-8X-aum" secondAttribute="leading" constant="39" id="rxe-t8-sPP"/>
+                                    <constraint firstAttribute="bottom" secondItem="jkZ-49-Z8F" secondAttribute="bottom" constant="26" id="sB4-d5-Gsj"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAK-MO-dcG">
-                                <rect key="frame" x="38" y="676" width="338" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAK-MO-dcG">
+                                <rect key="frame" x="38" y="690" width="338" height="67"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="dqp-4p-W70"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <state key="normal" title="新規データ登録">
                                     <color key="titleColor" systemColor="systemIndigoColor"/>
@@ -66,6 +88,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="hAK-MO-dcG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="1iW-gN-FLz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hAK-MO-dcG" secondAttribute="bottom" constant="56" id="1nr-7w-XLB"/>
+                            <constraint firstItem="hAK-MO-dcG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FCn-fs-n3c"/>
+                            <constraint firstItem="hAK-MO-dcG" firstAttribute="top" secondItem="2qL-8X-aum" secondAttribute="bottom" constant="61" id="S5b-qo-lqX"/>
+                            <constraint firstItem="2qL-8X-aum" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="juu-V1-Nhj"/>
+                            <constraint firstItem="2qL-8X-aum" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kRx-Ku-lky"/>
+                            <constraint firstItem="2qL-8X-aum" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vTQ-zq-enN"/>
+                            <constraint firstItem="2qL-8X-aum" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wiZ-j7-Okm"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="SignUp" image="location.fill" catalog="system" id="ymH-Ye-gfq"/>
                     <navigationItem key="navigationItem" id="xr1-Pw-iGH"/>

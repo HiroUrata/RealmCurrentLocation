@@ -12,7 +12,7 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tabBar.barTintColor = .systemGreen
+        tabBar.barTintColor = .systemGray
         tabBar.tintColor = .white
         tabBar.unselectedItemTintColor = .systemIndigo
         

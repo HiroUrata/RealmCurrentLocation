@@ -12,6 +12,8 @@ import RealmSwift
 class RealmCRUDModel{
     
     var allReadRealmDatasResultArray:[[String:String]] = []
+    var searchRealmDatasResultArray:[[String:String]] = []
+    
     
 }
 

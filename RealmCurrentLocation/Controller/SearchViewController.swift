@@ -16,6 +16,8 @@ class SearchViewController: UIViewController {
     
     let realmCRUDModel = RealmCRUDModel()
     
+    var searchBool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,7 +46,15 @@ extension SearchViewController:UITableViewDelegate{
 extension SearchViewController:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        
+        switch searchBool{
+        
+        case true: return realmCRUDModel.searchRealmDatasResultArray.count
+            
+        case false: return realmCRUDModel.allReadRealmDatasResultArray.count
+            
+        }
+        
     }
     
     

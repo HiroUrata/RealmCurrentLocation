@@ -25,11 +25,16 @@ class SearchViewController: UIViewController {
       
         realmCRUDModel.allReadRealmDatas(targetView: self)
         
-        tableView.delegate = self
-//        tableView.dataSource = self
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        searchBool = false
+        tableView.delegate = self
+//        tableView.dataSource = self
+    }
     
     @IBAction func search(_ sender: UIButton) {
         

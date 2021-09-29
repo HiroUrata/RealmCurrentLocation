@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
     
     let realmCRUDModel = RealmCRUDModel()
     
-    var searchBool = false
+    var searchBool = false //画面が変わるたびにfalseにする
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +30,10 @@ class SearchViewController: UIViewController {
 
     }
     
+    
     @IBAction func search(_ sender: UIButton) {
         
-        
+        //検索が完了したらsearchBoolをtrueにする
         
     }
     
@@ -50,7 +51,7 @@ extension SearchViewController:UITableViewDataSource{
 
         var returnValue = Int()
         
-        switch realmCRUDModel.searchRealmDatasResultArray.count >= 0{
+        switch searchBool{
         
         case true:
             returnValue = realmCRUDModel.searchRealmDatasResultArray.count
@@ -64,7 +65,24 @@ extension SearchViewController:UITableViewDataSource{
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        let cellDateLabel = cell.contentView.viewWithTag(1) as! UILabel
+        let cellLocationLabel = cell.contentView.viewWithTag(2) as! UILabel
+        
+        switch searchBool{
+        
+        case true:
+            cellDateLabel.text = realmCRUDModel.searchRealmDatasResultArray[indexPath.row]["RealmSearchDate"]
+            cellLocationLabel.text = realmCRUDModel.searchRealmDatasResultArray[indexPath.row]["RealmSearchLocation"]
+            
+        case false:
+            cellDateLabel.text = realmCRUDModel.allReadRealmDatasResultArray[indexPath.row]["RealmDate"]
+            cellLocationLabel.text = realmCRUDModel.allReadRealmDatasResultArray[indexPath.row]["RealmLocation"]
+        }
+ 
+        return cell
     }
 
 

@@ -26,11 +26,12 @@ class SearchViewController: UIViewController {
         realmCRUDModel.allReadRealmDatas(targetView: self)
         
         tableView.delegate = self
-        tableView.dataSource = self
+//        tableView.dataSource = self
 
     }
     
     @IBAction func search(_ sender: UIButton) {
+        
         
         
     }
@@ -44,24 +45,28 @@ extension SearchViewController:UITableViewDelegate{
 }
 
 extension SearchViewController:UITableViewDataSource{
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        var returnValue = Int()
         
-        switch searchBool{
+        switch realmCRUDModel.searchRealmDatasResultArray.count >= 0{
         
-        case true: return realmCRUDModel.searchRealmDatasResultArray.count
+        case true:
+            returnValue = realmCRUDModel.searchRealmDatasResultArray.count
             
-        case false: return realmCRUDModel.allReadRealmDatasResultArray.count
-            
+        case false:
+            returnValue = realmCRUDModel.allReadRealmDatasResultArray.count
         }
-        
+
+        return returnValue
     }
-    
-    
+
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         <#code#>
     }
-    
-    
-    
+
+
+
 }

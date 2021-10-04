@@ -95,6 +95,7 @@ class GetCurrentLocationView:UIViewController{
     
     @IBAction func CurrentDataRegister(_ sender: UIButton) {
          
+        realmCRUDModel.createRealmCurrentDatas(createDate: createContentsArray[0]["createDate"]!, createCurrentLocation: createContentsArray[0]["createCurrentLocation"]!, createLatitude: createContentsArray[0]["createLatitude"]!, createLongitude: createContentsArray[0]["createLongitude"]!, targetView: self)
         
     }
     

@@ -12,7 +12,7 @@ import RealmSwift
 class RealmCRUDModel{
     
     var allReadRealmDatasResultArray:[[String:String]] = []
-    var searchRealmDatasResultArray:[[String:String]] = []
+    var searchReadRealmDatasResultArray:[[String:String]] = []
     
     
 }
@@ -68,6 +68,57 @@ extension RealmCRUDModel{
     
 }
 
+extension RealmCRUDModel{
+    
+    
+    
+    func searchReadRealmData(searchLocation:String,searchDate:String,targetView:UIViewController){
+        
+        do{
+            let realm = try Realm()
+            
+            switch (searchLocation.isEmpty,searchDate.isEmpty){
+                
+            case (false,false):
+                for searchRealmData in realm.objects(RealmCurrentDatas.self).filter(NSPredicate(format: "currentLocation == %@", searchLocation)).filter(NSPredicate(format: "currentDate == %@", searchDate)){
+                    
+                    searchReadRealmDatasResultArray.append(["RealmSearchLocation":searchRealmData.currentLocation,
+                                                            "RealmSearchDate":searchRealmData.currentDate,
+                                                            "RealmLatitude":searchRealmData.currentLatitude,
+                                                            "RealmLogitude":searchRealmData.currentLongitude])
+                }
+                
+            case (true, false):
+                for searchRealmData in realm.objects(RealmCurrentDatas.self).filter(NSPredicate(format: "currentDate == %@", searchDate)){
+                    
+                    searchReadRealmDatasResultArray.append(["RealmSearchLocation":searchRealmData.currentLocation,
+                                                            "RealmSearchDate":searchRealmData.currentDate,
+                                                            "RealmLatitude":searchRealmData.currentLatitude,
+                                                            "RealmLogitude":searchRealmData.currentLongitude])
+                }
+                
+            case (false, true):
+                for searchRealmData in realm.objects(RealmCurrentDatas.self).filter(NSPredicate(format: "currentLocation == %@", searchLocation)){
+                    
+                    searchReadRealmDatasResultArray.append(["RealmSearchLocation":searchRealmData.currentLocation,
+                                                            "RealmSearchDate":searchRealmData.currentDate,
+                                                            "RealmLatitude":searchRealmData.currentLatitude,
+                                                            "RealmLogitude":searchRealmData.currentLongitude])
+                }
+            
+            case (true, true):
+                Alert.showErrorAlert(errorContents: "データの取得", targetView: targetView)
+                return
+                
+            }
+            
+        }catch{
+            
+            Alert.showErrorAlert(errorContents: "データの取得", targetView: targetView)
+        }
+        
+    }
+}
 
 extension RealmCRUDModel{
     

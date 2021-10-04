@@ -10,7 +10,8 @@ import UIKit
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchItemView: UIView!
-    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,6 +26,9 @@ class SearchViewController: UIViewController {
       
         realmCRUDModel.allReadRealmDatas(targetView: self)
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
 
     }
     
@@ -32,14 +36,16 @@ class SearchViewController: UIViewController {
         super.viewWillAppear(animated)
         
         searchBool = false
-        tableView.delegate = self
-//        tableView.dataSource = self
     }
     
     @IBAction func search(_ sender: UIButton) {
-        
         //検索が完了したらsearchBoolをtrueにする
+        if locationTextField.text!.isEmpty && dateTextField.text!.isEmpty == false{
         
+        realmCRUDModel.searchReadRealmData(searchLocation: locationTextField.text!, searchDate: dateTextField.text!, targetView: self)
+        searchBool = true
+        tableView.reloadData()
+        }
     }
     
   
@@ -52,6 +58,11 @@ extension SearchViewController:UITableViewDelegate{
 
 extension SearchViewController:UITableViewDataSource{
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return tableView.frame.size.height / 5
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         var returnValue = Int()
@@ -59,7 +70,7 @@ extension SearchViewController:UITableViewDataSource{
         switch searchBool{
         
         case true:
-            returnValue = realmCRUDModel.searchRealmDatasResultArray.count
+            returnValue = realmCRUDModel.searchReadRealmDatasResultArray.count
             
         case false:
             returnValue = realmCRUDModel.allReadRealmDatasResultArray.count
@@ -79,8 +90,8 @@ extension SearchViewController:UITableViewDataSource{
         switch searchBool{
         
         case true:
-            cellDateLabel.text = realmCRUDModel.searchRealmDatasResultArray[indexPath.row]["RealmSearchDate"]
-            cellLocationLabel.text = realmCRUDModel.searchRealmDatasResultArray[indexPath.row]["RealmSearchLocation"]
+            cellDateLabel.text = realmCRUDModel.searchReadRealmDatasResultArray[indexPath.row]["RealmSearchDate"]
+            cellLocationLabel.text = realmCRUDModel.searchReadRealmDatasResultArray[indexPath.row]["RealmSearchLocation"]
             
         case false:
             cellDateLabel.text = realmCRUDModel.allReadRealmDatasResultArray[indexPath.row]["RealmDate"]

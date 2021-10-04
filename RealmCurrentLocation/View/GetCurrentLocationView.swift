@@ -14,6 +14,7 @@ class GetCurrentLocationView:UIViewController{
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var currentLocationTextView: UITextView!
+    @IBOutlet weak var registerButton: UIButton!
     
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
@@ -43,6 +44,8 @@ class GetCurrentLocationView:UIViewController{
             let date = Date()
             return formatter.string(from:  date)
         }()
+        
+        registerButton.layer.cornerRadius = 20.0
         
         showPermission()
         setUpLocationManager()

@@ -232,9 +232,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="NYo-cI-Hve"/>
                     <connections>
+                        <outlet property="dateTextField" destination="74j-dh-ea5" id="qdl-CG-aFY"/>
+                        <outlet property="locationTextField" destination="8bn-Oh-ju4" id="wCv-N7-Nk7"/>
                         <outlet property="searchButton" destination="zP6-Kk-6Vd" id="uSi-Tr-Fc1"/>
                         <outlet property="searchItemView" destination="OsS-kl-kTp" id="Wed-sB-GXS"/>
-                        <outlet property="searchTextField" destination="8bn-Oh-ju4" id="6MN-iT-FcQ"/>
                         <outlet property="tableView" destination="p2W-LA-wXg" id="sfp-zg-WIt"/>
                     </connections>
                 </viewController>

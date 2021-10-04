@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,6 +13,7 @@
                 <outlet property="currentDateLabel" destination="DFD-cH-V19" id="hgd-bd-ReA"/>
                 <outlet property="currentLocationTextView" destination="gg7-Iy-nIc" id="VTp-Yf-I2d"/>
                 <outlet property="mapView" destination="XjU-0B-C0e" id="UP3-75-5zR"/>
+                <outlet property="registerButton" destination="7mX-NX-jOH" id="CYY-tm-ehh"/>
                 <outlet property="view" destination="iN0-l3-epB" id="GxK-3h-szN"/>
             </connections>
         </placeholder>
@@ -48,11 +50,23 @@
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mX-NX-jOH">
+                    <rect key="frame" x="348" y="544" width="46" height="46"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="fnw-8S-ltc"/>
+                    </constraints>
+                    <state key="normal" title="登録">
+                        <color key="titleColor" systemColor="systemBlueColor"/>
+                    </state>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="7mX-NX-jOH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="500" id="199-X7-jsb"/>
                 <constraint firstItem="DFD-cH-V19" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="70" id="9vI-h0-RsB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7mX-NX-jOH" secondAttribute="trailing" constant="20" id="9x8-xi-Bof"/>
                 <constraint firstItem="XjU-0B-C0e" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="88" id="EOj-b8-acp"/>
                 <constraint firstItem="gg7-Iy-nIc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="70" id="ITH-c1-Kgm"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gg7-Iy-nIc" secondAttribute="trailing" constant="71" id="Jjz-wZ-hR1"/>
@@ -61,9 +75,15 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XjU-0B-C0e" secondAttribute="trailing" constant="89" id="fHx-IY-u9R"/>
                 <constraint firstItem="XjU-0B-C0e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="gyK-Bu-yUs"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DFD-cH-V19" secondAttribute="trailing" constant="71" id="knI-1M-xJg"/>
+                <constraint firstItem="7mX-NX-jOH" firstAttribute="leading" secondItem="gg7-Iy-nIc" secondAttribute="trailing" constant="5" id="yjI-tK-1Be"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-181.15942028985509" y="181.47321428571428"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

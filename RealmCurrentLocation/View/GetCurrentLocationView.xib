@@ -59,6 +59,9 @@
                     <state key="normal" title="登録">
                         <color key="titleColor" systemColor="systemBlueColor"/>
                     </state>
+                    <connections>
+                        <action selector="CurrentDataRegister:" destination="-1" eventType="touchUpInside" id="hWj-t5-smJ"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -23,6 +23,7 @@ class GetCurrentLocationView:UIViewController{
     let mkPointAnnotation = MKPointAnnotation()
     let realmCRUDModel = RealmCRUDModel()
     
+    var createContentsArray:[[String:String]] = []
     
     override func viewDidLoad() {
            super.viewDidLoad()
@@ -92,6 +93,12 @@ class GetCurrentLocationView:UIViewController{
            }
        }
     
+    @IBAction func CurrentDataRegister(_ sender: UIButton) {
+         
+        
+    }
+    
+    
 }
 
 
@@ -135,8 +142,15 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
             
             if let resultPlaceMark = placeMark?.first{
                 
-                    self.realmCRUDModel.createRealmCurrentDatas(createDate: self.currentDateLabel.text!, createCurrentLocation: resultPlaceMark.administrativeArea! + resultPlaceMark.subLocality! + resultPlaceMark.name!, createLatitude: String((locations.first?.coordinate.latitude)!), createLongitude: String((locations.first?.coordinate.longitude)!), targetView: self)
-                   
+                self.createContentsArray = []
+                
+                self.createContentsArray.append(["createDate":self.currentDateLabel.text!,
+                                                 "createCurrentLocation":resultPlaceMark.administrativeArea! + resultPlaceMark.subLocality! + resultPlaceMark.name!,
+                                                 "createLatitude":String((locations.first?.coordinate.latitude)!),
+                                                 "createLongitude":String((locations.first?.coordinate.longitude)!)])
+                
+//                    self.realmCRUDModel.createRealmCurrentDatas(createDate: self.currentDateLabel.text!, createCurrentLocation: resultPlaceMark.administrativeArea! + resultPlaceMark.subLocality! + resultPlaceMark.name!, createLatitude: String((locations.first?.coordinate.latitude)!), createLongitude: String((locations.first?.coordinate.longitude)!), targetView: self)
+//
                     self.currentLocationTextView.text = """
                         緯度
                         [\((locations.first?.coordinate.latitude)!)]

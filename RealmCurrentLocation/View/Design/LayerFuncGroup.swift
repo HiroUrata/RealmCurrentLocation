@@ -44,6 +44,7 @@ extension LayerFuncGroup{
         targetView.layer.shadowRadius = 5
         
         targetButton.layer.cornerRadius = 20.0
+
         
         targetTableView.layer.cornerRadius = 20.0
         targetTableView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]

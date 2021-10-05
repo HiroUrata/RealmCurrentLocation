@@ -40,24 +40,24 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gg7-Iy-nIc">
-                    <rect key="frame" x="70" y="365" width="273" height="185"/>
+                    <rect key="frame" x="70" y="365" width="273" height="145"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="273" id="TmD-T1-G2G"/>
-                        <constraint firstAttribute="height" constant="185" id="vuU-mg-7y7"/>
+                        <constraint firstAttribute="height" constant="145" id="vuU-mg-7y7"/>
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mX-NX-jOH">
-                    <rect key="frame" x="348" y="544" width="46" height="46"/>
+                    <rect key="frame" x="98" y="528" width="218" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="46" id="fnw-8S-ltc"/>
+                        <constraint firstAttribute="height" constant="40" id="EfG-dt-cFW"/>
                     </constraints>
                     <state key="normal" title="登録">
-                        <color key="titleColor" systemColor="systemBlueColor"/>
+                        <color key="titleColor" systemColor="systemIndigoColor"/>
                     </state>
                     <connections>
                         <action selector="CurrentDataRegister:" destination="-1" eventType="touchUpInside" id="hWj-t5-smJ"/>
@@ -67,26 +67,26 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="7mX-NX-jOH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="500" id="199-X7-jsb"/>
+                <constraint firstItem="7mX-NX-jOH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="35y-Ud-ikK"/>
                 <constraint firstItem="DFD-cH-V19" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="70" id="9vI-h0-RsB"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7mX-NX-jOH" secondAttribute="trailing" constant="20" id="9x8-xi-Bof"/>
                 <constraint firstItem="XjU-0B-C0e" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="88" id="EOj-b8-acp"/>
                 <constraint firstItem="gg7-Iy-nIc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="70" id="ITH-c1-Kgm"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gg7-Iy-nIc" secondAttribute="trailing" constant="71" id="Jjz-wZ-hR1"/>
+                <constraint firstItem="7mX-NX-jOH" firstAttribute="top" secondItem="gg7-Iy-nIc" secondAttribute="bottom" constant="18" id="Knd-Dc-5XJ"/>
                 <constraint firstItem="gg7-Iy-nIc" firstAttribute="top" secondItem="DFD-cH-V19" secondAttribute="bottom" constant="8" symbolic="YES" id="Oev-Ey-jTY"/>
                 <constraint firstItem="DFD-cH-V19" firstAttribute="top" secondItem="XjU-0B-C0e" secondAttribute="bottom" constant="18" id="Tck-YH-oRE"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XjU-0B-C0e" secondAttribute="trailing" constant="89" id="fHx-IY-u9R"/>
                 <constraint firstItem="XjU-0B-C0e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="gyK-Bu-yUs"/>
+                <constraint firstItem="7mX-NX-jOH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="98" id="hhd-ng-Ome"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DFD-cH-V19" secondAttribute="trailing" constant="71" id="knI-1M-xJg"/>
-                <constraint firstItem="7mX-NX-jOH" firstAttribute="leading" secondItem="gg7-Iy-nIc" secondAttribute="trailing" constant="5" id="yjI-tK-1Be"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-181.15942028985509" y="181.47321428571428"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -123,7 +123,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p2W-LA-wXg">
                                 <rect key="frame" x="20" y="265" width="374" height="631"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="gUX-zR-3Jc"/>
                                 </constraints>
@@ -199,6 +199,18 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAe-Vz-bvY">
+                                        <rect key="frame" x="381" y="214" width="25" height="25"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="MR7-Iu-Zh4"/>
+                                            <constraint firstAttribute="width" constant="25" id="vPA-r0-zRU"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="arrow.clockwise" catalog="system"/>
+                                        <connections>
+                                            <action selector="reload:" destination="2lt-pv-SlR" eventType="touchUpInside" id="tR6-DP-ORU"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -206,13 +218,16 @@
                                     <constraint firstAttribute="width" constant="414" id="9ET-vp-rpU"/>
                                     <constraint firstItem="zP6-Kk-6Vd" firstAttribute="top" secondItem="8bn-Oh-ju4" secondAttribute="bottom" constant="26" id="I3h-Dj-Pnk"/>
                                     <constraint firstAttribute="trailing" secondItem="8bn-Oh-ju4" secondAttribute="trailing" constant="56" id="LRc-rH-X4w"/>
+                                    <constraint firstAttribute="bottom" secondItem="rAe-Vz-bvY" secondAttribute="bottom" constant="8" id="NdZ-7n-6ZZ"/>
                                     <constraint firstAttribute="height" constant="248" id="aNr-IK-RSw"/>
                                     <constraint firstItem="74j-dh-ea5" firstAttribute="leading" secondItem="OsS-kl-kTp" secondAttribute="leading" constant="56" id="as8-B6-zXQ"/>
                                     <constraint firstItem="8bn-Oh-ju4" firstAttribute="top" secondItem="74j-dh-ea5" secondAttribute="bottom" constant="18" id="c3g-MM-X15"/>
                                     <constraint firstAttribute="trailing" secondItem="74j-dh-ea5" secondAttribute="trailing" constant="56" id="dKo-7V-thP"/>
                                     <constraint firstItem="zP6-Kk-6Vd" firstAttribute="leading" secondItem="OsS-kl-kTp" secondAttribute="leading" constant="56" id="fAc-72-TeS"/>
+                                    <constraint firstAttribute="trailing" secondItem="rAe-Vz-bvY" secondAttribute="trailing" constant="8" id="gUx-dT-Bk6"/>
                                     <constraint firstItem="74j-dh-ea5" firstAttribute="top" secondItem="OsS-kl-kTp" secondAttribute="top" constant="65" id="jA9-lj-Bsb"/>
                                     <constraint firstItem="zP6-Kk-6Vd" firstAttribute="width" secondItem="8bn-Oh-ju4" secondAttribute="width" id="orG-lr-CKu"/>
+                                    <constraint firstItem="rAe-Vz-bvY" firstAttribute="centerX" secondItem="OsS-kl-kTp" secondAttribute="centerX" constant="186.5" id="qVG-Xi-MHQ"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zP6-Kk-6Vd" secondAttribute="trailing" constant="20" symbolic="YES" id="uFA-pg-6TV"/>
                                 </constraints>
                             </view>
@@ -234,6 +249,7 @@
                     <connections>
                         <outlet property="dateTextField" destination="74j-dh-ea5" id="qdl-CG-aFY"/>
                         <outlet property="locationTextField" destination="8bn-Oh-ju4" id="wCv-N7-Nk7"/>
+                        <outlet property="reloadButton" destination="rAe-Vz-bvY" id="gYq-UB-2Ty"/>
                         <outlet property="searchButton" destination="zP6-Kk-6Vd" id="uSi-Tr-Fc1"/>
                         <outlet property="searchItemView" destination="OsS-kl-kTp" id="Wed-sB-GXS"/>
                         <outlet property="tableView" destination="p2W-LA-wXg" id="sfp-zg-WIt"/>
@@ -241,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNb-JZ-D3n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1922" y="443"/>
+            <point key="canvasLocation" x="1921.7391304347827" y="442.63392857142856"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pT8-Ga-JPx">
@@ -280,6 +296,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="location.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -13,7 +13,9 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var reloadButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
     
     let realmCRUDModel = RealmCRUDModel()
     
@@ -29,13 +31,16 @@ class SearchViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         searchBool = false
+        print("viewWillAppear")
+        realmCRUDModel.allReadRealmDatas(targetView: self)
+        tableView.reloadData()
     }
     
     @IBAction func search(_ sender: UIButton) {
@@ -45,7 +50,26 @@ class SearchViewController: UIViewController {
         realmCRUDModel.searchReadRealmData(searchLocation: locationTextField.text!, searchDate: dateTextField.text!, targetView: self)
         searchBool = true
         tableView.reloadData()
+        }else{
+            
+            searchBool = false
+            realmCRUDModel.allReadRealmDatas(targetView: self)
+            tableView.reloadData()
         }
+    }
+    
+    @IBAction func reload(_ sender: UIButton) {
+        
+        if searchBool == false{
+            
+            realmCRUDModel.allReadRealmDatas(targetView: self)
+            tableView.reloadData()
+        }else if searchBool == true{
+            
+            realmCRUDModel.searchReadRealmData(searchLocation: locationTextField.text!, searchDate: dateTextField.text!, targetView: self)
+            tableView.reloadData()
+        }
+        
     }
     
   
@@ -87,6 +111,10 @@ extension SearchViewController:UITableViewDataSource{
         let cellDateLabel = cell.contentView.viewWithTag(1) as! UILabel
         let cellLocationLabel = cell.contentView.viewWithTag(2) as! UILabel
         
+        cell.layer.cornerRadius = 20.0
+        cell.layer.borderColor = UIColor.systemIndigo.cgColor
+        cell.layer.borderWidth = 5.0
+        
         switch searchBool{
         
         case true:
@@ -101,6 +129,16 @@ extension SearchViewController:UITableViewDataSource{
         return cell
     }
 
+}
 
 
+extension SearchViewController:UITabBarControllerDelegate{
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
+        if tabBarController.selectedIndex == 1{
+            
+            tableView.reloadData()
+        }
+    }
 }

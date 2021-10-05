@@ -18,7 +18,7 @@ class TabBarViewController: UITabBarController {
         
         tabBar.layer.cornerRadius = 25.0
         tabBar.layer.masksToBounds = true
-        tabBar.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMinXMinYCorner]
+        //tabBar.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMinXMinYCorner]
         
     }
     

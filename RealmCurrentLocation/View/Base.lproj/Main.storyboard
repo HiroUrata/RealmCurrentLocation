@@ -275,11 +275,12 @@
                                     <constraint firstAttribute="width" constant="329" id="mKa-BZ-y35"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFz-j7-FTd">
                                 <rect key="frame" x="43" y="668" width="329" height="52"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="329" id="jKM-Bf-iim"/>
                                 </constraints>
@@ -303,8 +304,11 @@
                                     <constraint firstAttribute="width" constant="39" id="e9N-Jd-rzj"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="stop" catalog="system"/>
+                                <connections>
+                                    <action selector="check:" destination="flh-lM-6SC" eventType="touchUpInside" id="z3t-Jz-wZA"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下記の注意事項を必ずお読み下さい" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMY-Nj-Gh0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下記の注意事項を必ずお読み下さい" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMY-Nj-Gh0">
                                 <rect key="frame" x="60" y="110" width="295" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="biX-xw-ZdJ"/>
@@ -333,10 +337,15 @@
                             <constraint firstItem="84y-1d-nkY" firstAttribute="leading" secondItem="dBI-Ih-wzA" secondAttribute="leading" constant="82" id="xEr-nZ-tVL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="checkButton" destination="84y-1d-nkY" id="TVp-ZI-0c8"/>
+                        <outlet property="consentStatementView" destination="MSP-3k-eG5" id="CUg-D0-NSv"/>
+                        <outlet property="startButton" destination="WFz-j7-FTd" id="W88-Pw-Fzf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M9g-wZ-VKC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="240.57971014492756" y="105.80357142857143"/>
+            <point key="canvasLocation" x="300" y="106"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="bPr-ej-MP4">

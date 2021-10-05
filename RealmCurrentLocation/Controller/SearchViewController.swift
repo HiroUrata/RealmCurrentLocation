@@ -47,7 +47,7 @@ class SearchViewController: UIViewController {
         //検索が完了したらsearchBoolをtrueにする
         if locationTextField.text!.isEmpty && dateTextField.text!.isEmpty == false{
         
-        realmCRUDModel.searchReadRealmData(searchLocation: locationTextField.text!, searchDate: dateTextField.text!, targetView: self)
+        realmCRUDModel.searchReadRealmData(searchLocation: locationTextField.text!, searchDay: dateTextField.text!, targetView: self)
         searchBool = true
         tableView.reloadData()
         }else{
@@ -66,7 +66,7 @@ class SearchViewController: UIViewController {
             tableView.reloadData()
         }else if searchBool == true{
             
-            realmCRUDModel.searchReadRealmData(searchLocation: locationTextField.text!, searchDate: dateTextField.text!, targetView: self)
+            realmCRUDModel.searchReadRealmData(searchLocation: locationTextField.text!, searchDay: dateTextField.text!, targetView: self)
             tableView.reloadData()
         }
         

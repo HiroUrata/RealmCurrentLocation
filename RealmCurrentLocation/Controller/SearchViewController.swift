@@ -38,7 +38,6 @@ class SearchViewController: UIViewController {
         super.viewWillAppear(animated)
         
         searchBool = false
-        print("viewWillAppear")
         realmCRUDModel.allReadRealmDatas(targetView: self)
         tableView.reloadData()
     }

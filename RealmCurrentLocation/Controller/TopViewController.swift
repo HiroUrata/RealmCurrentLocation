@@ -17,12 +17,26 @@ class TopViewController: UIViewController, UIViewControllerTransitioningDelegate
     @IBOutlet weak var beforeResultLocationLabel: UILabel!
     @IBOutlet weak var showSignUpViewButton: UIButton!
     
+    let realmCRUDModel = RealmCRUDModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         LayerFuncGroup.topViewDesign(targetLabels: [beforeResultLabel,beforeResultDateLabel,beforeResultLocationLabel], targetView: topSystemIndigoView, targetButton: showSignUpViewButton)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        realmCRUDModel.allReadRealmDatas(targetView: self)
+        
+        if realmCRUDModel.allReadRealmDatasResultArray.count > 0{
+
+            beforeResultDateLabel.text = realmCRUDModel.allReadRealmDatasResultArray.last!["RealmDate"]
+            beforeResultLocationLabel.text = realmCRUDModel.allReadRealmDatasResultArray.last!["RealmLocation"]
+        }
+       
     }
     
     @IBAction func showGetCurrentDatasView(_ sender: UIButton) {
@@ -33,8 +47,7 @@ class TopViewController: UIViewController, UIViewControllerTransitioningDelegate
 
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error){
 
-            let reason = "TouchID "
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success,error in
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "TouchID ") { success,error in
 
                 DispatchQueue.main.async {
 

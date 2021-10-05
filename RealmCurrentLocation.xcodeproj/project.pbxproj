@@ -105,10 +105,10 @@
 		543BE55526D8B6BC0028AD50 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				54F05CEB270BF86D002E245F /* ConsentStatementViewController.swift */,
 				543BE55B26D912160028AD50 /* TabBarViewController.swift */,
 				543BE54526D8B1D20028AD50 /* TopViewController.swift */,
 				543BE55D26DB57EB0028AD50 /* SearchViewController.swift */,
-				54F05CEB270BF86D002E245F /* ConsentStatementViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

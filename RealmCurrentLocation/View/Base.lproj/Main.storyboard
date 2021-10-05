@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ong-11-8x6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="flh-lM-6SC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -190,10 +190,10 @@
                                             <action selector="search:" destination="2lt-pv-SlR" eventType="touchUpInside" id="93p-Tx-DQU"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="74j-dh-ea5">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="入力例：2021年01月01日" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="74j-dh-ea5">
                                         <rect key="frame" x="56" y="65" width="302" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="302" id="OPX-u0-dNs"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="302" id="OPX-u0-dNs"/>
                                             <constraint firstAttribute="height" constant="34" id="l7Q-GL-TP7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -222,7 +222,7 @@
                                     <constraint firstAttribute="height" constant="248" id="aNr-IK-RSw"/>
                                     <constraint firstItem="74j-dh-ea5" firstAttribute="leading" secondItem="OsS-kl-kTp" secondAttribute="leading" constant="56" id="as8-B6-zXQ"/>
                                     <constraint firstItem="8bn-Oh-ju4" firstAttribute="top" secondItem="74j-dh-ea5" secondAttribute="bottom" constant="18" id="c3g-MM-X15"/>
-                                    <constraint firstAttribute="trailing" secondItem="74j-dh-ea5" secondAttribute="trailing" constant="56" id="dKo-7V-thP"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="74j-dh-ea5" secondAttribute="trailing" constant="20" symbolic="YES" id="dKo-7V-thP"/>
                                     <constraint firstItem="zP6-Kk-6Vd" firstAttribute="leading" secondItem="OsS-kl-kTp" secondAttribute="leading" constant="56" id="fAc-72-TeS"/>
                                     <constraint firstAttribute="trailing" secondItem="rAe-Vz-bvY" secondAttribute="trailing" constant="8" id="gUx-dT-Bk6"/>
                                     <constraint firstItem="74j-dh-ea5" firstAttribute="top" secondItem="OsS-kl-kTp" secondAttribute="top" constant="65" id="jA9-lj-Bsb"/>
@@ -259,20 +259,84 @@
             </objects>
             <point key="canvasLocation" x="1921.7391304347827" y="442.63392857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Consent Statement View Controller-->
         <scene sceneID="pT8-Ga-JPx">
             <objects>
-                <viewController id="flh-lM-6SC" sceneMemberID="viewController">
+                <viewController id="flh-lM-6SC" customClass="ConsentStatementViewController" customModule="RealmCurrentLocation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oEi-FS-pkA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MSP-3k-eG5">
+                                <rect key="frame" x="43" y="166" width="329" height="367"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="367" id="jY2-hp-m4C"/>
+                                    <constraint firstAttribute="width" constant="329" id="mKa-BZ-y35"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFz-j7-FTd">
+                                <rect key="frame" x="43" y="668" width="329" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="329" id="jKM-Bf-iim"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="33"/>
+                                <state key="normal" title="start"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注意事項を読んだ上で、注意事項に同意します。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8on-99-uNr">
+                                <rect key="frame" x="129" y="571" width="203" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="I0Z-nl-Joq"/>
+                                    <constraint firstAttribute="width" constant="203" id="d7F-Jc-TZ4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84y-1d-nkY">
+                                <rect key="frame" x="82" y="585" width="39" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="NCF-aw-w7T"/>
+                                    <constraint firstAttribute="width" constant="39" id="e9N-Jd-rzj"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="stop" catalog="system"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下記の注意事項を必ずお読み下さい" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMY-Nj-Gh0">
+                                <rect key="frame" x="60" y="110" width="295" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="biX-xw-ZdJ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="295" id="cqc-eJ-PEk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dBI-Ih-wzA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uMY-Nj-Gh0" firstAttribute="centerX" secondItem="oEi-FS-pkA" secondAttribute="centerX" id="1Ml-XC-vO1"/>
+                            <constraint firstItem="dBI-Ih-wzA" firstAttribute="trailing" secondItem="8on-99-uNr" secondAttribute="trailing" constant="83" id="3QO-XV-61y"/>
+                            <constraint firstItem="WFz-j7-FTd" firstAttribute="centerX" secondItem="oEi-FS-pkA" secondAttribute="centerX" id="EbR-tA-Iii"/>
+                            <constraint firstItem="uMY-Nj-Gh0" firstAttribute="top" secondItem="dBI-Ih-wzA" secondAttribute="top" constant="66" id="HSv-Gj-iLo"/>
+                            <constraint firstItem="MSP-3k-eG5" firstAttribute="leading" secondItem="dBI-Ih-wzA" secondAttribute="leading" constant="43" id="Jqr-a8-uMM"/>
+                            <constraint firstItem="uMY-Nj-Gh0" firstAttribute="leading" secondItem="dBI-Ih-wzA" secondAttribute="leading" constant="60" id="NNB-oN-Dfn"/>
+                            <constraint firstItem="84y-1d-nkY" firstAttribute="top" secondItem="MSP-3k-eG5" secondAttribute="bottom" constant="50" id="bAK-ba-5Rm"/>
+                            <constraint firstItem="MSP-3k-eG5" firstAttribute="centerX" secondItem="oEi-FS-pkA" secondAttribute="centerX" id="jqe-SW-hlb"/>
+                            <constraint firstItem="WFz-j7-FTd" firstAttribute="leading" secondItem="dBI-Ih-wzA" secondAttribute="leading" constant="43" id="mt5-M7-u3A"/>
+                            <constraint firstItem="8on-99-uNr" firstAttribute="top" secondItem="MSP-3k-eG5" secondAttribute="bottom" constant="38" id="n0O-6R-dpY"/>
+                            <constraint firstItem="WFz-j7-FTd" firstAttribute="top" secondItem="8on-99-uNr" secondAttribute="bottom" constant="34" id="qUG-Xl-L8a"/>
+                            <constraint firstItem="MSP-3k-eG5" firstAttribute="top" secondItem="uMY-Nj-Gh0" secondAttribute="bottom" constant="15" id="vWS-5c-olU"/>
+                            <constraint firstItem="84y-1d-nkY" firstAttribute="leading" secondItem="dBI-Ih-wzA" secondAttribute="leading" constant="82" id="xEr-nZ-tVL"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M9g-wZ-VKC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="106"/>
+            <point key="canvasLocation" x="240.57971014492756" y="105.80357142857143"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="bPr-ej-MP4">
@@ -298,11 +362,18 @@
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="location.fill" catalog="system" width="128" height="121"/>
+        <image name="stop" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

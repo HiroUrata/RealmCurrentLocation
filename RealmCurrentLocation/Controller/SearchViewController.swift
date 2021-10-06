@@ -81,9 +81,16 @@ extension SearchViewController:UITableViewDelegate{
         let deleteAction = UIContextualAction(style: .destructive, title: "") { _,_,_  in
             
         }
-        deleteAction.image = UIImage(systemName: "trash")
         
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        let searchAction = UIContextualAction(style: .normal, title: "") { _, _, _ in
+            
+        }
+        
+        deleteAction.image = UIImage(systemName: "trash")
+        searchAction.image = UIImage(systemName: "magnifyingglass")
+        searchAction.backgroundColor = .systemGreen
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction,searchAction])
 
     }
 }

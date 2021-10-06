@@ -76,7 +76,15 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController:UITableViewDelegate{
     
-    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "削除") { _,_,_  in
+            
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+
+    }
 }
 
 extension SearchViewController:UITableViewDataSource{
@@ -127,6 +135,7 @@ extension SearchViewController:UITableViewDataSource{
  
         return cell
     }
+    
 
 }
 

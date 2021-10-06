@@ -78,9 +78,10 @@ extension SearchViewController:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: .destructive, title: "削除") { _,_,_  in
+        let deleteAction = UIContextualAction(style: .destructive, title: "") { _,_,_  in
             
         }
+        deleteAction.image = UIImage(systemName: "trash")
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
 

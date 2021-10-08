@@ -24,7 +24,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        LayerFuncGroup.searchViewDesign(targetView: searchItemView, targetButton: searchButton, targetTableView: tableView)
+        LayerFuncGroup.searchViewDesign(targetView: searchItemView, targetButton: searchButton)
       
         realmCRUDModel.allReadRealmDatas(targetView: self)
         
@@ -92,6 +92,7 @@ extension SearchViewController:UITableViewDelegate{
             
             let searchAction = UIContextualAction(style: .normal, title: "") { _, _, _ in
                 
+                
             }
             
             deleteAction.image = UIImage(systemName: "trash")
@@ -140,7 +141,6 @@ extension SearchViewController:UITableViewDataSource{
         let cellDateLabel = cell.contentView.viewWithTag(1) as! UILabel
         let cellLocationLabel = cell.contentView.viewWithTag(2) as! UILabel
         
-        cell.layer.cornerRadius = 20.0
         cell.layer.borderColor = UIColor.systemIndigo.cgColor
         cell.layer.borderWidth = 5.0
         

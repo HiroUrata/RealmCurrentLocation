@@ -35,7 +35,7 @@ extension LayerFuncGroup{
 
 extension LayerFuncGroup{
     
-    static func searchViewDesign(targetView:UIView,targetButton:UIButton,targetTableView:UITableView){
+    static func searchViewDesign(targetView:UIView,targetButton:UIButton){
         
         targetView.layer.cornerRadius = 20.0
         targetView.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
@@ -44,11 +44,6 @@ extension LayerFuncGroup{
         targetView.layer.shadowRadius = 5
         
         targetButton.layer.cornerRadius = 20.0
-
-        
-        targetTableView.layer.cornerRadius = 20.0
-        targetTableView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
-        
         
     }
     

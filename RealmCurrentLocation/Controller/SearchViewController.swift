@@ -82,7 +82,12 @@ extension SearchViewController:UITableViewDelegate{
             
             let deleteAction = UIContextualAction(style: .destructive, title: "") { _,_,_  in
                 
-                
+                print(self.realmCRUDModel.allReadRealmDatasResultArray)
+                self.realmCRUDModel.selectRealmDataDelete(selectContensNumber: indexPath.row, targetView: self)
+                self.realmCRUDModel.allReadRealmDatas(targetView: self)
+                tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic)
+                tableView.reloadData()
+                print(self.realmCRUDModel.allReadRealmDatasResultArray)
             }
             
             let searchAction = UIContextualAction(style: .normal, title: "") { _, _, _ in

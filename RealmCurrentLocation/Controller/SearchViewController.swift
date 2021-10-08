@@ -78,21 +78,30 @@ extension SearchViewController:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: .destructive, title: "") { _,_,_  in
+        if searchBool == false{
             
+            let deleteAction = UIContextualAction(style: .destructive, title: "") { _,_,_  in
+                
+                
+            }
+            
+            let searchAction = UIContextualAction(style: .normal, title: "") { _, _, _ in
+                
+            }
+            
+            deleteAction.image = UIImage(systemName: "trash")
+            searchAction.image = UIImage(systemName: "magnifyingglass")
+            searchAction.backgroundColor = .systemGreen
+            
+            return UISwipeActionsConfiguration(actions: [deleteAction,searchAction])
+        }else{
+            
+            return nil
         }
         
-        let searchAction = UIContextualAction(style: .normal, title: "") { _, _, _ in
-            
-        }
         
-        deleteAction.image = UIImage(systemName: "trash")
-        searchAction.image = UIImage(systemName: "magnifyingglass")
-        searchAction.backgroundColor = .systemGreen
-        
-        return UISwipeActionsConfiguration(actions: [deleteAction,searchAction])
-
     }
+    
 }
 
 extension SearchViewController:UITableViewDataSource{

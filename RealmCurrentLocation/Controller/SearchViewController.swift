@@ -85,14 +85,14 @@ extension SearchViewController:UITableViewDelegate{
                 let alert = UIAlertController(title: "確認", message: "選択中のデータを削除しますか?", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "削除", style: .destructive, handler: { _ in
                     
-                    
+                    self.realmCRUDModel.selectRealmDataDelete(selectContensNumber: indexPath.row, targetView: self)
+                    self.realmCRUDModel.allReadRealmDatas(targetView: self)
+                    tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic)
+                    tableView.reloadData()
                 }))
                 alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
-                
-//                self.realmCRUDModel.selectRealmDataDelete(selectContensNumber: indexPath.row, targetView: self)
-//                self.realmCRUDModel.allReadRealmDatas(targetView: self)
-//                tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic)
-//                tableView.reloadData()
+                self.present(alert, animated: true, completion: nil)
+
             }
             
             let searchAction = UIContextualAction(style: .normal, title: "") { _, _, _ in

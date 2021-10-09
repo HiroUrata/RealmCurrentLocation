@@ -81,16 +81,23 @@ extension SearchViewController:UITableViewDelegate{
         if searchBool == false{
             
             let deleteAction = UIContextualAction(style: .destructive, title: "") { _,_,_  in
+               
+                let alert = UIAlertController(title: "確認", message: "選択中のデータを削除しますか?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "削除", style: .destructive, handler: { _ in
+                    
+                    
+                }))
+                alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
                 
-                print(self.realmCRUDModel.allReadRealmDatasResultArray)
-                self.realmCRUDModel.selectRealmDataDelete(selectContensNumber: indexPath.row, targetView: self)
-                self.realmCRUDModel.allReadRealmDatas(targetView: self)
-                tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic)
-                tableView.reloadData()
-                print(self.realmCRUDModel.allReadRealmDatasResultArray)
+//                self.realmCRUDModel.selectRealmDataDelete(selectContensNumber: indexPath.row, targetView: self)
+//                self.realmCRUDModel.allReadRealmDatas(targetView: self)
+//                tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic)
+//                tableView.reloadData()
             }
             
             let searchAction = UIContextualAction(style: .normal, title: "") { _, _, _ in
+                
+                //緯度と経度から検索してMapを表示させる。
                 
                 
             }

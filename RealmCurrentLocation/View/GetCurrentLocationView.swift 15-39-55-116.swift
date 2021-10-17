@@ -103,6 +103,7 @@ class GetCurrentLocationView:UIViewController{
                                                 formatter.timeStyle = .none
                                                 formatter.locale = Locale(identifier: "ja_JP")
                                                 let date = Date()
+                                                print(formatter.string(from:  date))
                                                 return formatter.string(from:  date)
                                             }(),
                                                createCurrentLocation: createContentsArray[0]["createCurrentLocation"]!,

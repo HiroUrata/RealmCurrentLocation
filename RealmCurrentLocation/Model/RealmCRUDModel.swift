@@ -91,6 +91,8 @@ extension RealmCRUDModel{
         do{
             let realm = try Realm()
             
+            searchReadRealmDatasResultArray = []
+            
             switch (searchLocation.isEmpty,searchDay.isEmpty){
                 
             case (false,false):

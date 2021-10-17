@@ -99,7 +99,7 @@ class GetCurrentLocationView:UIViewController{
                                                createDay: {() -> String in
                                                 
                                                 let formatter = DateFormatter()
-                                                formatter.dateStyle = .full
+                                                formatter.dateStyle = .long
                                                 formatter.timeStyle = .none
                                                 formatter.locale = Locale(identifier: "ja_JP")
                                                 let date = Date()

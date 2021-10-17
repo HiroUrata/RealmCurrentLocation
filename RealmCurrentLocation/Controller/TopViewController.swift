@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 import LocalAuthentication
 
 class TopViewController: UIViewController, UIViewControllerTransitioningDelegate {
@@ -15,6 +16,7 @@ class TopViewController: UIViewController, UIViewControllerTransitioningDelegate
     @IBOutlet weak var beforeResultLabel: UILabel!
     @IBOutlet weak var beforeResultDateLabel: UILabel!
     @IBOutlet weak var beforeResultLocationLabel: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var showSignUpViewButton: UIButton!
     
     let realmCRUDModel = RealmCRUDModel()
@@ -35,6 +37,8 @@ class TopViewController: UIViewController, UIViewControllerTransitioningDelegate
 
             beforeResultDateLabel.text = realmCRUDModel.allReadRealmDatasResultArray.last!["RealmDate"]
             beforeResultLocationLabel.text = realmCRUDModel.allReadRealmDatasResultArray.last!["RealmLocation"]
+            
+            indicateMap(cordinateLat: Double(realmCRUDModel.allReadRealmDatasResultArray.last!["RealmLatitude"]!), cordinateLog:  Double(realmCRUDModel.allReadRealmDatasResultArray.last!["RealmLongitude"]!))
         }
        
     }
@@ -71,6 +75,23 @@ class TopViewController: UIViewController, UIViewControllerTransitioningDelegate
         }
     }
 
+}
+
+extension TopViewController{
+    
+    func indicateMap(cordinateLat:Double?,cordinateLog:Double?){
+        
+        guard let lat = cordinateLat else { print("not get lat"); return }
+        guard let log = cordinateLog else { print("not get log"); return }
+        
+        let locationCordinate = CLLocationCoordinate2DMake(lat, log)
+        
+        let mapSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        
+        let coordinateRegion = MKCoordinateRegion(center: locationCordinate, span: mapSpan)
+        
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
 }
 
 extension TopViewController{

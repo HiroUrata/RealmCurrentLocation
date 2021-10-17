@@ -105,6 +105,7 @@
                         <outlet property="beforeResultDateLabel" destination="JIQ-xc-DEb" id="eJ9-Wk-1VU"/>
                         <outlet property="beforeResultLabel" destination="7t6-tl-gSk" id="NEx-7R-UEC"/>
                         <outlet property="beforeResultLocationLabel" destination="PZd-17-OuD" id="P0m-BX-xWF"/>
+                        <outlet property="mapView" destination="jkZ-49-Z8F" id="jHV-y5-YLh"/>
                         <outlet property="showSignUpViewButton" destination="hAK-MO-dcG" id="Q6s-C5-Afy"/>
                         <outlet property="topSystemIndigoView" destination="2qL-8X-aum" id="dNU-hX-hev"/>
                     </connections>

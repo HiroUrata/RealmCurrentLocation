@@ -10,8 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CellTapSearchResultView" customModule="RealmCurrentLocation" customModuleProvider="target">
             <connections>
-                <outlet property="MapView" destination="fnU-4v-rbI" id="n5B-EV-cqM"/>
                 <outlet property="dateResultLabel" destination="y6V-Z1-oUj" id="qEN-Hg-jdd"/>
+                <outlet property="mapView" destination="UCe-3y-CIm" id="hIT-mj-L1P"/>
                 <outlet property="resultTextView" destination="s5k-ob-lnI" id="Jac-Rm-kF6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,17 +21,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="610"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fnU-4v-rbI">
-                    <rect key="frame" x="60" y="117" width="294" height="231"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="fnU-4v-rbI" secondAttribute="height" multiplier="14:11" id="lCc-WT-2kf"/>
-                    </constraints>
-                </mapView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6V-Z1-oUj">
                     <rect key="frame" x="20" y="44" width="374" height="51"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="y6V-Z1-oUj" secondAttribute="height" multiplier="22:3" id="fzx-XY-nec"/>
+                        <constraint firstAttribute="width" secondItem="y6V-Z1-oUj" secondAttribute="height" multiplier="22:3" id="c5a-uc-pMk"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -41,25 +35,31 @@
                     <rect key="frame" x="60" y="370" width="294" height="205"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="s5k-ob-lnI" secondAttribute="height" multiplier="294:205" id="4pU-Z7-TRF"/>
+                        <constraint firstAttribute="width" secondItem="s5k-ob-lnI" secondAttribute="height" multiplier="294:205" id="PhP-WW-d0i"/>
                     </constraints>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UCe-3y-CIm">
+                    <rect key="frame" x="60" y="122" width="294" height="228"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="UCe-3y-CIm" secondAttribute="height" multiplier="49:38" id="gBg-Bu-Wcq"/>
+                    </constraints>
+                </mapView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="s5k-ob-lnI" secondAttribute="trailing" constant="60" id="5qw-d4-27w"/>
-                <constraint firstItem="fnU-4v-rbI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="ECF-Z9-WrU"/>
-                <constraint firstItem="s5k-ob-lnI" firstAttribute="top" secondItem="fnU-4v-rbI" secondAttribute="bottom" constant="22" id="b8u-8t-amj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fnU-4v-rbI" secondAttribute="trailing" constant="60" id="jLM-oZ-1x7"/>
-                <constraint firstItem="y6V-Z1-oUj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="oAF-If-mlf"/>
-                <constraint firstItem="fnU-4v-rbI" firstAttribute="top" secondItem="y6V-Z1-oUj" secondAttribute="bottom" constant="22" id="olH-aA-glP"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="y6V-Z1-oUj" secondAttribute="trailing" constant="20" id="t01-2s-1Dt"/>
-                <constraint firstItem="y6V-Z1-oUj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="wFz-Q2-hhz"/>
-                <constraint firstItem="s5k-ob-lnI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="yLU-pg-TTC"/>
+                <constraint firstItem="s5k-ob-lnI" firstAttribute="top" secondItem="UCe-3y-CIm" secondAttribute="bottom" constant="20" id="5yZ-Ju-TbY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="s5k-ob-lnI" secondAttribute="trailing" constant="60" id="Ci6-kM-1P4"/>
+                <constraint firstItem="UCe-3y-CIm" firstAttribute="top" secondItem="y6V-Z1-oUj" secondAttribute="bottom" constant="27" id="Omu-mr-RHF"/>
+                <constraint firstItem="s5k-ob-lnI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="QMY-ff-8hm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="y6V-Z1-oUj" secondAttribute="trailing" constant="20" id="UHg-n7-t1e"/>
+                <constraint firstItem="UCe-3y-CIm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="kbL-yI-srE"/>
+                <constraint firstItem="y6V-Z1-oUj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="qhl-0I-gLr"/>
+                <constraint firstItem="y6V-Z1-oUj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="tkJ-g4-tmy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UCe-3y-CIm" secondAttribute="trailing" constant="60" id="w3F-6P-7bm"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="137.68115942028987" y="149.33035714285714"/>

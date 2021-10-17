@@ -12,7 +12,7 @@
             <connections>
                 <outlet property="currentDateLabel" destination="DFD-cH-V19" id="hgd-bd-ReA"/>
                 <outlet property="currentLocationTextView" destination="gg7-Iy-nIc" id="VTp-Yf-I2d"/>
-                <outlet property="mapView" destination="XjU-0B-C0e" id="UP3-75-5zR"/>
+                <outlet property="mapView" destination="XjU-0B-C0e" id="ewj-6j-ZcV"/>
                 <outlet property="registerButton" destination="7mX-NX-jOH" id="CYY-tm-ehh"/>
                 <outlet property="view" destination="iN0-l3-epB" id="GxK-3h-szN"/>
             </connections>

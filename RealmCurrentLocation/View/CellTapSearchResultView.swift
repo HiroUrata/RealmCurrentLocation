@@ -12,7 +12,7 @@ class CellTapSearchResultView: UIViewController {
 
     
     @IBOutlet weak var dateResultLabel: UILabel!
-    @IBOutlet weak var MapView: MKMapView!
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var resultTextView: UITextView!
     
     var tapCellNumber = Int()
@@ -50,7 +50,11 @@ class CellTapSearchResultView: UIViewController {
         
         //let region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLatitude"]!)!, Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLongitude"]!)!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
-        MapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2DMake(Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLatitude"]!)!, Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLongitude"]!)!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
+        mapView.mapType = .standard //標準の地図を表示
+        mapView.showsCompass = true
+        mapView.isRotateEnabled = false
+        
+        mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2DMake(Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLatitude"]!)!, Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLongitude"]!)!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
         
     }
     

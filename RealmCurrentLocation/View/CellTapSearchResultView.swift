@@ -27,6 +27,8 @@ class CellTapSearchResultView: UIViewController {
 
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         view.addGestureRecognizer(panGesture)
+        
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +43,14 @@ class CellTapSearchResultView: UIViewController {
         dateResultLabel.layer.masksToBounds = true
         resultTextView.layer.cornerRadius = 13.0
         resultTextView.layer.masksToBounds = true
+        
+        //let cordinate = CLLocationCoordinate2DMake(Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLatitude"]!)!, Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLongitude"]!)!)
+        
+        //let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        
+        //let region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLatitude"]!)!, Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLongitude"]!)!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        MapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2DMake(Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLatitude"]!)!, Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLongitude"]!)!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
         
     }
     

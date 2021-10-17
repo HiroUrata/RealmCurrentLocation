@@ -9,7 +9,6 @@ import UIKit
 import MapKit
 
 class CellTapSearchResultView: UIViewController {
-
     
     @IBOutlet weak var dateResultLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
@@ -28,7 +27,6 @@ class CellTapSearchResultView: UIViewController {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         view.addGestureRecognizer(panGesture)
         
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,24 +36,18 @@ class CellTapSearchResultView: UIViewController {
         realmCRUDModel.selectReadRealmData(selectNumber: tapCellNumber)
         print(realmCRUDModel.selectReadRealmDataResultArray)
         
-        dateResultLabel.text = realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmDate"]
         dateResultLabel.layer.cornerRadius = 13.0
         dateResultLabel.layer.masksToBounds = true
         resultTextView.layer.cornerRadius = 13.0
         resultTextView.layer.masksToBounds = true
-        
-        //let cordinate = CLLocationCoordinate2DMake(Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLatitude"]!)!, Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLongitude"]!)!)
-        
-        //let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        
-        //let region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLatitude"]!)!, Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLongitude"]!)!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        
         mapView.mapType = .standard //標準の地図を表示
-        mapView.showsCompass = true
+        mapView.showsCompass = false
         mapView.isRotateEnabled = false
         
-        mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2DMake(Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLatitude"]!)!, Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLongitude"]!)!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
-        
+        displayDatas(displayDate: realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmDate"],
+                     searxhlat: Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLatitude"]!),
+                     searchLog: Double(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLongitude"]!))
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -94,8 +86,32 @@ class CellTapSearchResultView: UIViewController {
 
 extension CellTapSearchResultView{
     
-    open func displayGetDatas(displayDate:String){
+    open func displayDatas(displayDate:String?, searxhlat:Double?, searchLog:Double?){
         
+        guard let text = displayDate else { return }
+        guard let lat = searxhlat else { print("not get lat"); return }
+        guard let log = searchLog else { print("not get log"); return }
         
+        dateResultLabel.text = text
+        
+        let locationCordinate = CLLocationCoordinate2DMake(lat, log)
+        
+        let mapSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        
+        let coordinateRegion = MKCoordinateRegion(center: locationCordinate, span: mapSpan)
+        
+        mapView.setRegion(coordinateRegion, animated: true)
+        
+        resultTextView.text = """
+                              緯度
+                              [\(lat)]
+                                                      
+                              経度
+                              [\(log)]
+                                                      
+                              場所
+                              [\(realmCRUDModel.selectReadRealmDataResultArray[0]["selectRealmLocation"]!)]
+                              """
     }
+    
 }

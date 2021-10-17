@@ -162,8 +162,6 @@ extension GetCurrentLocationView:MKMapViewDelegate,CLLocationManagerDelegate, UI
                                                  "createLatitude":String((locations.first?.coordinate.latitude)!),
                                                  "createLongitude":String((locations.first?.coordinate.longitude)!)])
                 
-//                    self.realmCRUDModel.createRealmCurrentDatas(createDate: self.currentDateLabel.text!, createCurrentLocation: resultPlaceMark.administrativeArea! + resultPlaceMark.subLocality! + resultPlaceMark.name!, createLatitude: String((locations.first?.coordinate.latitude)!), createLongitude: String((locations.first?.coordinate.longitude)!), targetView: self)
-//
                     self.currentLocationTextView.text = """
                         緯度
                         [\((locations.first?.coordinate.latitude)!)]

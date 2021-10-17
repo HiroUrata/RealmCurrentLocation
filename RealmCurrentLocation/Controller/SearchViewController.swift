@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UIViewControllerTransitioningDelegate  {
 
     @IBOutlet weak var searchItemView: UIView!
     @IBOutlet weak var dateTextField: UITextField!
@@ -75,16 +75,16 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController:UITableViewDelegate{
-    
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
+
         if searchBool == false{
-            
-            let deleteAction = UIContextualAction(style: .destructive, title: "") { _,_,_  in
-               
+
+            let deleteAction = UIContextualAction(style: .destructive, title: "") { action,_,_  in
+
                 let alert = UIAlertController(title: "確認", message: "選択中のデータを削除しますか?", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "削除", style: .destructive, handler: { _ in
-                    
+
                     self.realmCRUDModel.selectRealmDataDelete(selectContensNumber: indexPath.row, targetView: self)
                     self.realmCRUDModel.allReadRealmDatas(targetView: self)
                     tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic)
@@ -94,28 +94,35 @@ extension SearchViewController:UITableViewDelegate{
                 self.present(alert, animated: true, completion: nil)
 
             }
-            
+
             let searchAction = UIContextualAction(style: .normal, title: "") { _, _, _ in
                 
                 //緯度と経度から検索してMapを表示させる。
+                let cellTSRView = CellTapSearchResultView()
+                cellTSRView.tapCellNumber = indexPath.row
+                cellTSRView.modalPresentationStyle = .custom
+                cellTSRView.transitioningDelegate = self
+                self.present(cellTSRView, animated: true, completion: nil)
                 
-                
-            }
             
+            }
+
             deleteAction.image = UIImage(systemName: "trash")
             searchAction.image = UIImage(systemName: "magnifyingglass")
             searchAction.backgroundColor = .systemGreen
-            
+
             return UISwipeActionsConfiguration(actions: [deleteAction,searchAction])
         }else{
-            
+
             return nil
         }
-        
-        
+
+
     }
-    
+
 }
+
+
 
 extension SearchViewController:UITableViewDataSource{
 
@@ -168,14 +175,13 @@ extension SearchViewController:UITableViewDataSource{
 
 }
 
-
-extension SearchViewController:UITabBarControllerDelegate{
+extension SearchViewController{
     
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         
-        if tabBarController.selectedIndex == 1{
-            
-            tableView.reloadData()
-        }
+        PresentationController(presentedViewController: presented, presenting: presenting)
+        
     }
 }
+
+

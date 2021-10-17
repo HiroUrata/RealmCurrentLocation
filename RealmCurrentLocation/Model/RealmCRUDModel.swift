@@ -13,7 +13,7 @@ class RealmCRUDModel{
     
     var allReadRealmDatasResultArray:[[String:String]] = []
     var searchReadRealmDatasResultArray:[[String:String]] = []
-    
+    var selectReadRealmDataResultArray:[[ String:String]] = []
     
 }
 
@@ -43,6 +43,23 @@ extension RealmCRUDModel{
     
 }
 
+extension RealmCRUDModel{
+    
+    func selectReadRealmData(selectNumber:Int){
+        
+        do{
+            let realm = try Realm()
+            selectReadRealmDataResultArray = []
+            
+            selectReadRealmDataResultArray.append(["selectRealmDate":realm.objects(RealmCurrentDatas.self)[selectNumber].currentDate,
+                                                   "selectRealmLocation":realm.objects(RealmCurrentDatas.self)[selectNumber].currentLocation,
+                                                   "selectRealmLatitude":realm.objects(RealmCurrentDatas.self)[selectNumber].currentLatitude,
+                                                   "selectRealmLongitude":realm.objects(RealmCurrentDatas.self)[selectNumber].currentLongitude,])
+        }catch{
+            
+        }
+    }
+}
 
 extension RealmCRUDModel{
     
@@ -68,8 +85,6 @@ extension RealmCRUDModel{
 }
 
 extension RealmCRUDModel{
-    
-    
     
     func searchReadRealmData(searchLocation:String,searchDay:String,targetView:UIViewController){
         

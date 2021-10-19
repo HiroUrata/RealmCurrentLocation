@@ -12,9 +12,9 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tabBar.barTintColor = .systemGray
-        tabBar.tintColor = .white
-        tabBar.unselectedItemTintColor = .systemIndigo
+        tabBar.barTintColor = .tertiarySystemGroupedBackground
+        tabBar.tintColor = .systemIndigo
+        tabBar.unselectedItemTintColor = .systemGray
         
         tabBar.layer.cornerRadius = 25.0
         tabBar.layer.masksToBounds = true

@@ -24,6 +24,9 @@ extension LayerFuncGroup{
         targetView.layer.shadowOffset = CGSize(width: 10, height: 10)
         targetView.layer.shadowOpacity = 0.65
         targetView.layer.shadowRadius = 5
+        targetView.layer.borderColor = UIColor.white.cgColor
+        targetView.layer.borderWidth = 10.0
+        targetView.backgroundColor = .clear
         
         targetButton.layer.cornerRadius = 20.0
         targetButton.layer.shadowOffset = CGSize(width: 10, height: 10)

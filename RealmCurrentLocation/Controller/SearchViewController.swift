@@ -10,6 +10,7 @@ import UIKit
 class SearchViewController: UIViewController, UIViewControllerTransitioningDelegate  {
 
     @IBOutlet weak var searchItemView: UIView!
+    @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
@@ -25,7 +26,9 @@ class SearchViewController: UIViewController, UIViewControllerTransitioningDeleg
         super.viewDidLoad()
 
         LayerFuncGroup.searchViewDesign(targetView: searchItemView, targetButton: searchButton)
-      
+        blurView.layer.cornerRadius = 20.0
+        blurView.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+        blurView.layer.masksToBounds = true
         realmCRUDModel.allReadRealmDatas(targetView: self)
         
         tableView.delegate = self
@@ -155,7 +158,8 @@ extension SearchViewController:UITableViewDataSource{
         let cellDateLabel = cell.contentView.viewWithTag(1) as! UILabel
         let cellLocationLabel = cell.contentView.viewWithTag(2) as! UILabel
         
-        cell.layer.borderColor = UIColor.systemIndigo.cgColor
+        cell.backgroundColor = .tertiarySystemGroupedBackground
+        cell.layer.borderColor = UIColor.clear.cgColor
         cell.layer.borderWidth = 5.0
         
         switch searchBool{
@@ -183,5 +187,3 @@ extension SearchViewController{
         
     }
 }
-
-
